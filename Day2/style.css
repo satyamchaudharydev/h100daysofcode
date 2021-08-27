@@ -80,6 +80,7 @@ body{
     margin-top: 50px;
     gap:10px;
     grid-template-columns: repeat(3,1fr);
+    
 }
 .stat-num{
     font-size: 14px;
