@@ -9,13 +9,6 @@
     .left-img{
         /* grid-column: 2/3; */
     }
-    .hero-section{
-        
-        /* height: 700px;  */
-    }
-    /* img{
-        transform: scale(0.8);
-    } */
     .hero-header{
         font-size: 48px;
     }
@@ -31,9 +24,13 @@
     /* .img{
         transform: scale(0.7);
     } */
+    .slide-1{
+        height: 210px;
+    }
     .footer-header{
 
     }
+
     footer{
         height: 53vh;
     }
@@ -62,3 +59,12 @@
         gap: 30px;
     }
 } 
+@media(max-width:560px){
+    .main-content > p{
+        width: 90vw
+    }
+    .main-content > h1{
+        width: 80vw;
+        
+    }
+}

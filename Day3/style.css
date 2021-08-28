@@ -101,10 +101,10 @@ nav{
     content: "";
     position: absolute;
     width: 1px;
-    top: -100px;
+    top: -84px;
 
     background: #DDDDE3;
-    height: 100px;
+    height: 84px;
 }
 /* main */
 .main{
@@ -200,7 +200,7 @@ nav{
     content: "";
     position: absolute;
     width: 1px;
-    top: -100px;
+    top: -84px;
 
     background: #DDDDE3;
     height: 100px;
