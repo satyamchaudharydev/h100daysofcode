@@ -31,6 +31,12 @@
     /* .img{
         transform: scale(0.7);
     } */
+    .footer-header{
+
+    }
+    footer{
+        height: 53vh;
+    }
     .hero-content-btns{
         flex-direction: column;
     }
@@ -45,7 +51,12 @@
     /* .img{
         transform: scale(0.9);
     } */
-    
+    .foot-desc p {
+        width: 92%;
+    }
+    .mask{
+        padding-top: 65px;
+    }
     .hero-section{
         grid-template-columns: 1fr 1fr;
         gap: 30px;
