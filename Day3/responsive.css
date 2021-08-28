@@ -31,7 +31,9 @@
     /* .img{
         transform: scale(0.7);
     } */
-   
+    .hero-content-btns{
+        flex-direction: column;
+    }
     .img img{
         width: 105%;
     }
