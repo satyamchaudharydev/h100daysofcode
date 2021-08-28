@@ -32,7 +32,9 @@
         transform: scale(0.7);
     } */
    
-   
+    .img img{
+        width: 105%;
+    }
     .hero-section{
         gap: 30px;
     }
@@ -41,6 +43,7 @@
     /* .img{
         transform: scale(0.9);
     } */
+    
     .hero-section{
         grid-template-columns: 1fr 1fr;
         gap: 30px;
