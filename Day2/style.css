@@ -98,9 +98,11 @@ body{
     display: grid;
     gap:10px;
 
-    grid-template-rows: repeat(3,1fr );
     width: 70%;
     height: 60%;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3,1fr);
+
 }
 
 .stat-desc{
