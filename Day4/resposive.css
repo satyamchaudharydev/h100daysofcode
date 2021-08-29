@@ -9,6 +9,9 @@
     }
 }
 @media(max-width: 600px){
+    .card-4{
+        display: block;
+    }
     .cards
 {
     width: 60vw;

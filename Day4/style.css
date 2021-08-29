@@ -41,7 +41,10 @@ body{
 
     
 }
-
+.card-4{
+    display: none;
+    height: 60px;
+}
 .card:nth-child(3){
     background: #004140;
     border-radius: 0px  5px 5px 0px;
