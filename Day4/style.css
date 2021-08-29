@@ -51,7 +51,7 @@ body{
 
 }
 img{
-    animation: carmove 0.3s ease;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .title h1{
     font-size: 40px;
@@ -111,6 +111,7 @@ img{
 }
 .card:hover img{
     transform: translate(110%);
+
     transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 
 }
