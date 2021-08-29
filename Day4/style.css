@@ -17,7 +17,7 @@ body{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     width: 70vw;
-    height: 100%;
+    height: 60vh;
     color: #fff;
 }
 .card{
@@ -98,7 +98,7 @@ img{
     cursor: pointer;
     transform: scale(0.92);
     filter: blur(1.5px);
-    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
  .cards .card:hover{
     transform: scale(1);
@@ -108,7 +108,7 @@ img{
 }
 .card:hover img{
     transform: translate(110%);
-    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 
 }
 
