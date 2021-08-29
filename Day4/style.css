@@ -43,7 +43,7 @@ body{
 }
 .card-4{
     display: none;
-    height: 60px;
+    height: 40px;
 }
 .card:nth-child(3){
     background: #004140;
