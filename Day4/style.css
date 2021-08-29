@@ -23,7 +23,6 @@ body{
 .card{
     position: relative;
     padding: 20px;
-    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     grid-template-rows: 100px 80px 150px 99px;
     display: grid;
 
@@ -53,7 +52,7 @@ img{
 }
 .title h1{
     font-size: 40px;
-    font-family: 'Big Shoulders Display', cursive;
+    font-family: 'Big Shoulders Display';
 
 }
 .desc p{
@@ -99,7 +98,7 @@ img{
     cursor: pointer;
     transform: scale(0.92);
     filter: blur(1.5px);
-    transition: 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
  .cards .card:hover{
     transform: scale(1);
