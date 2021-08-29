@@ -1,0 +1,22 @@
+@media(max-width: 1200px){
+    .cards{
+        width: 80vw;
+    }
+}
+@media(max-width: 950px){
+    .cards{
+        width: 95vw;
+    }
+}
+@media(max-width: 600px){
+    .cards
+{
+    width: 60vw;
+    height: 90vh;
+}
+.card{
+    grid-template-rows: 90px 70px 120px 100px;
+    gap: 10px;
+    
+}
+    }
