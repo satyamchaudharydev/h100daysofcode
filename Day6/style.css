@@ -123,7 +123,7 @@ box-shadow:  -12px -12px 48px #6362d2,
     background: #7271F1;
 
     box-shadow:  12px 12px 48px #6362d2,
-             -12px -12px 48px #8180ff;
+             -12px -13px 48px #8180ff;
     transition: 0.2s ease-in-out;
 }
 .button p{
