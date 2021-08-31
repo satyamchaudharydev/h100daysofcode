@@ -36,11 +36,21 @@ body{
 }
 h1{
     font-size: 42px;
+    background: linear-gradient( 
+        282deg
+         , #7271F1, #000002 , #000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
 }
 .desc{
     width: 93%;
     justify-self: center;
     line-height: 25px;
+    background: linear-gradient( 
+319deg
+ , #7271F1, #000002 , #070719);;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
 }
 .num{
     position: absolute;
@@ -115,4 +125,16 @@ box-shadow:  -12px -12px 48px #6362d2,
     box-shadow:  12px 12px 48px #6362d2,
              -12px -12px 48px #8180ff;
     transition: 0.2s ease-in-out;
+}
+.button p{
+    background: linear-gradient( 
+282deg
+ , #7271F1, #000002 , #000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+  .button:hover .button-p{
+    -webkit-text-fill-color: black;
+    transition: 0.3s;
+
 }
