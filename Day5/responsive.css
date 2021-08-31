@@ -56,7 +56,7 @@
         position: absolute;
         opacity: 0.1;
         width: 100vw;
-        height: 100%;
+        height: 100vh;
         background: url("./assets/mobile/image-host.jpg")  no-repeat;
         background-size: cover;
         pointer-events: none;
@@ -93,6 +93,9 @@
     font-weight: 300;
     width: 80%;
    }
+   .footer{
+    width: 80%;    
+   }
    .overlay .footer img{
        transform: scale(0.8);
    }
@@ -116,4 +119,10 @@
    }
   
   
+}
+@media (max-width: 450px){
+    .overlay .footer img{
+        transform: scale(1);
+        width: 66px;
+    }
 }
