@@ -167,3 +167,6 @@ body{
     font-size: 12px;
 width: 79%;
 }
+::placeholder{
+    font-weight: bold;
+}

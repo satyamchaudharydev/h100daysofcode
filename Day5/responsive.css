@@ -64,9 +64,10 @@
  
 
     .overlay{
+        padding-top: 48px;
         display: grid;
         width: 100vw;
-        grid-template-rows: 149px 240px 157px;
+        grid-template-rows: 129px 240px 157px;
         gap: 20px;
         height: 94vh;
     }
@@ -94,10 +95,10 @@
     width: 80%;
    }
    .footer{
-    width: 80%;    
+    width: 84%;    
    }
    .overlay .footer img{
-       transform: scale(0.8);
+       transform: scale(0.9);
    }
    .m-input{
        display: flex;
