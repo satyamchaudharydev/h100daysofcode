@@ -22,7 +22,8 @@ body{
   width: 900px;
   height: 900px; 
   top: -400px;
-  left: -300px;
+  left: -240px;
+  
   z-index: 1;
   background: linear-gradient(
     106deg
