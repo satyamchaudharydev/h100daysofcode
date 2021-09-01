@@ -9,6 +9,7 @@ body{
  font-family: 'Kumbh Sans', sans-serif;
 }
 .wrapper{
+overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +24,7 @@ body{
   height: 900px; 
   top: -400px;
   left: -240px;
-  
+
   z-index: 1;
   background: linear-gradient(
     106deg
