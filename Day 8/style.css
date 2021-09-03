@@ -1,0 +1,105 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    font-family: 'Kumbh Sans', sans-serif;
+}
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #B068E9 0%, #6463E7 100%);
+}
+.container{
+    width: 70%;
+    height: 549px;
+    background: #fff;
+    border-radius: 15px;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.img  {
+    position: relative;
+}
+
+svg{
+    display: none;
+     position: absolute;
+    left: -70px;
+    }
+    .bg{
+        top: 30px;
+        left: -80px;
+    }
+ .details-wrapper{
+     width: 80%;
+     height: 80%;
+     display: grid;
+     margin-top: 20px;
+
+
+ }   
+ .detail{
+     border-bottom: 1px solid #E8E8EA;
+ }
+ .detail p{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #787887;
+ }
+ .fa-chevron-up{
+     color: #F47B56;
+ }
+.detail:last-child{
+    border-bottom: none;
+}  
+h3{
+    color: #4B4C5F;
+    font-weight: normal;
+    font-size: 16px;
+}
+p{
+    display: none;
+    
+}
+h1{
+    font-weight: 700;
+}
+.h3-wrapper{
+    display: flex;
+
+}
+h3{
+    flex-basis: 95%;
+    gap: 20px;
+   
+}
+i{
+    align-self: center;
+}
+
+.para-active{
+    display: block;
+}
+:checked ~ .para{
+    display: block;
+}
+:checked ~ .fa{
+    color: green;
+    transform: rotate(180deg);
+}
+#toggle3:checked ~ .fa{
+    color: green;
+}
+input{
+    position: absolute;
+    display: none;
+}
+.box{
+    background: #000;
+}
