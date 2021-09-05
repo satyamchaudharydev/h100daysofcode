@@ -3,6 +3,8 @@
 }
 body{
     margin: 0;
+    background: linear-gradient(180deg, #B068E9 0%, #6463E7 100%);
+    background-repeat: no-repeat;
     font-family: 'Kumbh Sans', sans-serif;
 }
 .wrapper{
@@ -11,45 +13,62 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(180deg, #B068E9 0%, #6463E7 100%);
 }
 .container{
     width: 70%;
+    max-width: 1100px;
     height: 549px;
     background: #fff;
     border-radius: 15px;
-    overflow-x: hidden;
     display: grid;
+    position: relative;
     grid-template-columns: repeat(2,1fr);
+    gap: 10px;
 }
 .img  {
+    overflow: hidden;
+
     position: relative;
+    overflow: hidden;
 }
 
 svg{
-    display: none;
+    top: 5em;
      position: absolute;
     left: -70px;
     }
     .bg{
-        top: 30px;
-        left: -80px;
+        top: -18em;
+        left: -34em;
+    }
+    .details{
+        overflow: scroll;
     }
  .details-wrapper{
+     
      width: 80%;
      height: 80%;
+     
      display: grid;
      margin-top: 20px;
-
-
- }   
- .detail{
+     
+     
+    }
+    .fa{
+        transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }   
+    
+    .detail{
+    
      border-bottom: 1px solid #E8E8EA;
+     display: grid;
+     gap: 0.5em;
+     grid-template-columns: 1fr auto;
  }
  .detail p{
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 0px;
     color: #787887;
  }
  .fa-chevron-up{
@@ -64,42 +83,72 @@ h3{
     font-size: 16px;
 }
 p{
-    display: none;
-    
+     transition: all 0.2s ease;
 }
 h1{
     font-weight: 700;
 }
-.h3-wrapper{
-    display: flex;
 
-}
 h3{
     flex-basis: 95%;
     gap: 20px;
+    cursor: pointer;
+    
    
 }
 i{
+    position: relative;
+    right: 15%;
+    pointer-events: none;
     align-self: center;
+    
 }
 
 .para-active{
-    display: block;
 }
 :checked ~ .para{
     display: block;
+    font-size: 14px;
+
+
 }
 :checked ~ .fa{
-    color: green;
     transform: rotate(180deg);
+
 }
-#toggle3:checked ~ .fa{
+:checked ~ h3{
+    color: red;
+}
+#toggle:checked ~ .detail .fa{
     color: green;
 }
+
 input{
     position: absolute;
     display: none;
 }
-.box{
-    background: #000;
+
+#text:checked ~ h3{
+    color: red;
+}
+.women-svg{
+    z-index: 2;
+}
+.cube{
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    
+    left: 0em;
+    top: calc(32% - 12px);
+    z-index: 999;
+}
+.mobile-img{
+    position: absolute;
+    background: url("./images/illustration-woman-online-mobile.svg") no-repeat;
+    width: 100%;
+    height: 100%;
+    display: none;
+    top:  calc(10vh - 90px);
+    margin: 0 auto;
 }
