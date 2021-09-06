@@ -3,6 +3,8 @@
 }
 body{
     margin: 0;
+
+
     background: linear-gradient(180deg, #B068E9 0%, #6463E7 100%);
     background-repeat: no-repeat;
     font-family: 'Kumbh Sans', sans-serif;
@@ -102,6 +104,9 @@ i{
     pointer-events: none;
     align-self: center;
     
+}
+h3:hover{
+    color: #F47B56;
 }
 
 .para-active{
