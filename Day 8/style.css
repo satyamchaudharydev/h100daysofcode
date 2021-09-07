@@ -47,7 +47,7 @@ svg{
         overflow: scroll;
     }
  .details-wrapper{
-     
+
      width: 80%;
      height: 80%;
      
@@ -61,11 +61,15 @@ svg{
     }   
     
     .detail{
-    
+    position: relative;
      border-bottom: 1px solid #E8E8EA;
      display: grid;
-     gap: 0.5em;
+     padding-bottom: 10px;
      grid-template-columns: 1fr auto;
+     grid-template-rows: 44px;
+ }
+ .detail-title:hover{
+     color: #F47B56;
  }
  .detail p{
     font-style: normal;
@@ -95,9 +99,8 @@ h3{
     flex-basis: 95%;
     gap: 20px;
     cursor: pointer;
-    
-   
 }
+
 i{
     position: relative;
     right: 15%;
@@ -105,9 +108,7 @@ i{
     align-self: center;
     
 }
-h3:hover{
-    color: #F47B56;
-}
+
 
 .para-active{
 }
@@ -122,19 +123,26 @@ h3:hover{
 
 }
 :checked ~ h3{
-    color: red;
+    font-weight: bold;
 }
-#toggle:checked ~ .detail .fa{
-    color: green;
-}
+.h3-wrapper h3{
+    opacity: 0;
+    cursor: pointer;
+    }
 
 input{
     position: absolute;
     display: none;
 }
+.detail:hover h3{
+    color: #F47B56;
+}
 
-#text:checked ~ h3{
-    color: red;
+.detail label{
+    position: absolute;
+    width: 100%;
+
+    
 }
 .women-svg{
     z-index: 2;
