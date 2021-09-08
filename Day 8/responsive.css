@@ -73,7 +73,7 @@
          display: flex;
          transform: scale(0.7);
          top: -22%;
-         left: calc(30vw - 100px)
+         left: calc(30vw - 100px);
      
      }
      .cube,.bg{
