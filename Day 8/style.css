@@ -67,7 +67,6 @@ svg{
      display: grid;
      padding-bottom: 10px;
      grid-template-columns: 1fr auto;
-     grid-template-rows: 44px;
  }
  .detail-title:hover{
      color: #F47B56;
