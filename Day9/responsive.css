@@ -1,17 +1,21 @@
-@media(max-width: 1100px){
-    .box:nth-child(2){
-    top: calc(100vh - var(--height));}
 
-}
 
 @media(max-width: 900px){
+    body{
+        background: url(./images/bg-pattern-top-mobile.svg),url(./images/bg-pattern-bottom-mobile.svg) no-repeat;
+        background-position: top left,bottom right;
 
+    }
+    
     .desc{
         grid-template-columns: repeat(1,1fr );
     }
     :root{
        
         --main-text-width: 100%;
+    }
+    .white-space{
+        display: block;
     }
     .container{ 
         width: 90%;
@@ -41,19 +45,9 @@
     justify-self:center;
 
     }
-    svg{
-        align-self: end;
-    }
+ 
     .two,.three{
         margin: 0;
     }
-    .box{
-        width: 50%;
-        top: 60px;
-        left: 23% !important;
-        transform: scale(1);
-    }
-    .box:nth-child(2){
-        display: none;
-    }
+   
 }
