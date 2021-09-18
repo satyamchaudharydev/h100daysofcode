@@ -159,4 +159,11 @@ input{
 .share__pop-up label{
     display: none;
 }
+i{
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+i:hover{
+    transform: scale(1.2);
+}
  
