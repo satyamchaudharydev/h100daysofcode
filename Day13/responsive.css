@@ -1,3 +1,4 @@
+
 @media(max-width: 700px){
     .wrapper {
         grid-template-columns: 1fr;
@@ -19,15 +20,16 @@
         background-size: cover;
 
     }
+    .desc-section{
+        background: url('./images/bg-pattern-desktop.svg') no-repeat;
+        background-size: cover;
+    }
     .input-form{
         justify-self: center;
     }
     .text-desc{
         width: 100%;
         text-align: center;
-    }
-    .desc-section{
-        padding-bottom: 50px;
     }
     .input-container{
         width: 100%;
