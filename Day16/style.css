@@ -74,6 +74,9 @@ input:focus::-webkit-input-placeholder{
     color: var(--primary-txt-clr);
     opacity: 0.8;
 }
+.border input:focus{
+    border: red 1px solid;
+}
 .button{
     height: 56px;
 
