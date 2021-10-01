@@ -83,20 +83,23 @@ const playBeat = (currentBeat) => {
    setInterval(() => {
     console.log(currentBeat)
     playBeat(currentBeat)
+    if(currentBeat === 0){
+        circle.forEach(el=>{
+            el.classList.remove('scale')
+    
+          })
+    } 
     if (currentBeat === 7) {
       currentBeat = 0
       
 
     }
-    if(currentBeat ===8){
-        circle.forEach(el=>{
-            el.classList.remove('scale')
     
-          })
-    } else {
+    else {
         currentBeat += 1
 
     }
+    
   
   }, timing)
 
