@@ -1,6 +1,9 @@
 :root{
     --body-clr: #CCF2F7;
+    --transition: 0.9s; 
+
 }
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -58,9 +61,11 @@ body{
     
 }
 .circle{
+
     width: 40px; height: 40px;
     background: #44a4cad9;
-    border-radius: 50%;
+    /* border-radius: 50%; */
+    position: relative;
 
 } 
 .sound{
@@ -82,4 +87,45 @@ body{
 .play,.stop{
     background: skyblue;
     padding: 10px;
+}
+.circle-red::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    animation: ani var(--transition) linear;  
+    background: red;
+
+}
+.circle-yellow::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    animation: ani var(--transition) linear;  
+    background: yellow;
+
+}
+.circle-green::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    animation: ani var(--transition) linear;  
+    background: green;
+
+}
+
+@keyframes ani{ 
+    0%{
+        width: 0%;
+    }
+   
+    100%{
+        width: 100%;
+        background: black;
+    }
+}
+.update{
+    background: #000;
 }
