@@ -30,30 +30,37 @@ play.addEventListener("click", () => {
 
 const playBeat = (currentBeat) => {
     if (data[0][currentBeat].classList.contains("update")) {
-        console.log("hollysmoke")
       kick.play()
+      data[0][currentBeat].classList.add('scale')
     }
-    
+
     if (data[1][currentBeat].classList.contains("update")
     ) {
-        console.log("hollysmokep")
-
+        data[1][currentBeat].classList.add('scale')
       clap.play()
     }
+ 
     if (data[2][currentBeat].classList.contains("update")
     ) {
-        console.log("hollysmokle")
+        data[2][currentBeat].classList.add('scale')
 
       kick.play()
     }
+  
   }
   
   setInterval(() => {
     playBeat(currentBeat)
     if (currentBeat === 7) {
       currentBeat = 0
+      circle.forEach(el=>{
+        el.classList.remove('scale')
+
+      })
+
     } else {
         currentBeat += 1
+
     }
   
   }, 200)
