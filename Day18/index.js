@@ -25,8 +25,23 @@ circle.forEach((element, i) =>
     )
   
   )
-play.addEventListener("click", () => {
+let index = 0;
+const playPause = () => {
+    if(index === 0){
+        index = 1;
+        play.innerHTML = "pause";
 
+    }
+    else{
+        clearInterval(fresh);
+        fresh = null; 
+        index = 0;
+        play.innerHTML = "play";
+    }
+}
+play.addEventListener("click", () => {
+    playPause()
+    
     let currentBeat  = 0;
 
 const playBeat = (currentBeat) => {
