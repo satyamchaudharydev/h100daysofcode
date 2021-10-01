@@ -67,13 +67,13 @@ const playBeat = (currentBeat) => {
     }
 
     if (data[1][currentBeat].classList.contains("update")) {
-        data[1][currentBeat].classList.add('scale');
+        // data[1][currentBeat].classList.add('scale');
       clap.play();
     }
  
     if (data[2][currentBeat].classList.contains("update")
     ) {
-        data[2][currentBeat].classList.add('scale')
+        // data[2][currentBeat].classList.add('scale')
 
       hihat.play()
     }
