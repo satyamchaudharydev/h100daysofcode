@@ -6,8 +6,14 @@ const play = document.querySelector('.play')
 const kick = document.querySelector('.kick');
 const clap= document.querySelector('.clap');
 const hihat = document.querySelector('.hihat')
+const input = document.querySelector('input')
 
 let data = []
+let timing = 500;
+let currentBeat  = 0;
+
+console.log(data);
+
 data.push(one.children,two.children,three.children);
 // for clicking square
 const musicBlock = (index) => {
@@ -26,34 +32,43 @@ circle.forEach((element, i) =>
   
   )
 let index = 0;
-const playPause = () => {
+const playPause = (inter) => {
     if(index === 0){
         index = 1;
         play.innerHTML = "pause";
 
     }
     else{
-        clearInterval(fresh);
+        clearInterval(inter);
         fresh = null; 
         index = 0;
         play.innerHTML = "play";
     }
 }
 play.addEventListener("click", () => {
-    playPause()
-    
-    let currentBeat  = 0;
+
+
 
 const playBeat = (currentBeat) => {
+    if(data[0][currentBeat]){
+        data[0][currentBeat].classList.add('scale');
+
+    }
+    if(data[1][currentBeat]){
+        data[1][currentBeat].classList.add('scale');
+
+    }
+    if(data[2][currentBeat]){
+        data[2][currentBeat].classList.add('scale');
+
+    }
     if (data[0][currentBeat].classList.contains("update")) {
-      kick.play()
-      data[0][currentBeat].classList.add('scale')
+      kick.play();
     }
 
-    if (data[1][currentBeat].classList.contains("update")
-    ) {
-        data[1][currentBeat].classList.add('scale')
-      clap.play()
+    if (data[1][currentBeat].classList.contains("update")) {
+        data[1][currentBeat].classList.add('scale');
+      clap.play();
     }
  
     if (data[2][currentBeat].classList.contains("update")
@@ -65,7 +80,8 @@ const playBeat = (currentBeat) => {
   
   }
   
-  setInterval(() => {
+   setInterval(() => {
+    console.log(currentBeat)
     playBeat(currentBeat)
     if (currentBeat === 7) {
       currentBeat = 0
@@ -79,11 +95,19 @@ const playBeat = (currentBeat) => {
 
     }
   
-  }, 200)
+  }, timing)
+
 
 })
 
-
+input.addEventListener("change",() => {
+        const inputValue = input.value;
+        
+        index === 0;
+        playPause()
+        no = inputValue;
+        console.log(no)
+    })
 
 
 
