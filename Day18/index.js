@@ -5,6 +5,7 @@ const circle = document.querySelectorAll('.circle')
 const play = document.querySelector('.play')
 const kick = document.querySelector('.kick');
 const clap= document.querySelector('.clap');
+const hihat = document.querySelector('.hihat')
 
 let data = []
 data.push(one.children,two.children,three.children);
@@ -44,7 +45,7 @@ const playBeat = (currentBeat) => {
     ) {
         data[2][currentBeat].classList.add('scale')
 
-      kick.play()
+      hihat.play()
     }
   
   }
