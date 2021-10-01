@@ -85,11 +85,14 @@ const playBeat = (currentBeat) => {
     playBeat(currentBeat)
     if (currentBeat === 7) {
       currentBeat = 0
-      circle.forEach(el=>{
-        el.classList.remove('scale')
+      
 
-      })
-
+    }
+    if(currentBeat ===8){
+        circle.forEach(el=>{
+            el.classList.remove('scale')
+    
+          })
     } else {
         currentBeat += 1
 
@@ -101,6 +104,7 @@ const playBeat = (currentBeat) => {
 })
 
 input.addEventListener("change",() => {
+
         const inputValue = input.value;
         
         index === 0;
