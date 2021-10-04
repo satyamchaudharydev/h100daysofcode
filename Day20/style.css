@@ -13,11 +13,20 @@ body{
     background: var(--main-bg-clr);
     margin: 0;
 }
+
+.top-section{
+    display: grid;
+    grid-template-rows: repeat(3,auto );
+    gap: 10px;
+    height: 200px;
+    overflow-y: scroll;
+}
 .container{
     display: grid;
     padding: 20px;
     height: 100vh;
-    grid-template-rows: auto auto auto 1fr;
+    grid-template-rows: repeat(3,1fr);
+    /* grid-template-rows: auto auto auto 1fr; */
     gap: 25px;
 }
 /* display : grid */
@@ -61,7 +70,7 @@ p{
 /* Styling added beat */
 .added-beats{
     gap: 17px;
-    grid-template-columns: repeat(auto-fill,minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit,minmax(100px, 1fr));
 }
 .added-beat{
     border-radius: 7px;
@@ -104,7 +113,6 @@ p{
 }
 /* BAR */
 .beat-play-section{
-    background: #000;
     display: grid;
     gap: 20px;
 }
@@ -116,7 +124,7 @@ p{
 }
 
 .bar{
-    max-height: 130px;
+    max-height: 100px;
     border-radius: 10px;
     background :#588FD3;
 gap: 20px;}
