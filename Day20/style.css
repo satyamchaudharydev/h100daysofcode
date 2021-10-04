@@ -13,20 +13,9 @@ body{
     background: var(--main-bg-clr);
     margin: 0;
 }
-
-.top-section{
-    display: grid;
-    grid-template-rows: repeat(3,auto );
-    gap: 10px;
-    height: 200px;
-    overflow-y: scroll;
-}
 .container{
     display: grid;
     padding: 20px;
-    height: 100vh;
-    grid-template-rows: repeat(3,1fr);
-    /* grid-template-rows: auto auto auto 1fr; */
     gap: 25px;
 }
 /* display : grid */
@@ -70,7 +59,7 @@ p{
 /* Styling added beat */
 .added-beats{
     gap: 17px;
-    grid-template-columns: repeat(auto-fit,minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill,minmax(150px, 1fr));
 }
 .added-beat{
     border-radius: 7px;
@@ -124,7 +113,18 @@ p{
 }
 
 .bar{
-    max-height: 100px;
-    border-radius: 10px;
-    background :#588FD3;
-gap: 20px;}
+    width: 100px; height: 100px;
+    border-radius: 3px;
+}
+ .bars1 .bar{
+         border: 2px #69f3ee5c solid;
+    background: radial-gradient(circle, #69f3eebd 10%, #3f9ff3 100%);    gap: 20px;}
+.bars2 .bar,.bars4 .bar,.bars5 .bar{
+    background: #31315C;
+    border: 2px solid #5e4f7852;    /* box-shadow : 0px 2px 2px #31315C;  */
+}
+.bars3 .bar{
+    background: radial-gradient(circle, #8856dd 2%, #ca5edef7 100%);
+
+    }
+
