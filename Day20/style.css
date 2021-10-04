@@ -106,25 +106,63 @@ p{
     gap: 20px;
 }
 .bars{
+    
     display: grid;
     gap: 20px;
-    grid-template-columns:  repeat(auto-fill,minmax(100px, 1fr));
-    grid-auto-flow: dense;
+    grid-auto-flow: column;
 }
 
 .bar{
-    width: 100px; height: 100px;
+    width: 10vw;height: 10vw;
+    max-width: 100px; max-height: 100px;
     border-radius: 3px;
-}
- .bars1 .bar{
-         border: 2px #69f3ee5c solid;
-    background: radial-gradient(circle, #69f3eebd 10%, #3f9ff3 100%);    gap: 20px;}
-.bars2 .bar,.bars4 .bar,.bars5 .bar{
     background: #31315C;
-    border: 2px solid #5e4f7852;    /* box-shadow : 0px 2px 2px #31315C;  */
+    border: 2px solid #5e4f7852;
 }
-.bars3 .bar{
-    background: radial-gradient(circle, #8856dd 2%, #ca5edef7 100%);
-
+.bar{
+       /* box-shadow : 0px 2px 2px #31315C;  */
+}
+.bars .update{
+   
+    border: 2px var(--clr) solid;
+    background: radial-gradient(circle, var(--clr) 10%,  var(--color) 100%);
+}
+.bars1 .update{
+    --clr: #73FBD3;
+    --color: #73fbd3a6; 
+}
+.bars2 .update{
+    --clr: #44e5e7;
+    --color: #44e5e7b5; 
+}
+.bars3 .update{
+    --clr: #59D2FE;
+    --color: #59d2febd;
+}
+.bars4 .update{
+    --clr: #4a8fe7;
+    --color: #2b66b1;
+}
+.bars5 .update{
+    --clr: #5C7AFF;
+    --color: #5c7aff9e;
+}
+.scale{
+    transform: scale(1.1);
+}
+.clear-rotate{
+    animation: clearAnimation 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+@keyframes clearAnimation{
+    0%{
+        transform: rotate(0);
     }
-
+    100%{
+        transform: rotate(180deg);
+    }
+}
+ @media (min-width: 800px){
+    .bars{
+        justify-content: start;
+    }
+ } 

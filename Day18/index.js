@@ -70,14 +70,15 @@ const playPause = (inter) => {
         clearInterval(inter);
         inter = null; 
         index = 0;
-        play.innerHTML = `<i class="fa fa-play" aria-hidden="true">`;
+        play.innerHTML = `<i class="fa fa-play" aria-hidden="true"></i>`;
 
        
     }
 }
 play.addEventListener("click", () => {
+    console.log(interval);
     
-    playPause(interval)
+    playPause(interval);
     const playBeat = (currentBeat) => {
         if(data[0][currentBeat]){
             data[0][currentBeat].classList.add('scale');
@@ -124,10 +125,9 @@ play.addEventListener("click", () => {
             }
         }, time)
     }
-    if(index !== 0){
-        intervalFunction(timing)
+    if(index === 1){
+        intervalFunction(timing)    
     }
-    
 
 })
 let stopCount = 0;
