@@ -85,18 +85,19 @@ p{
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 .music-play-stat{
-    --width: 2%;
+    --before-width: 12%;
+    --width: 30px;
     border-radius: 20px;
     background: var(--primary-clr);
-    width:100%;
-    height: 10px;
+    width: var(--width);
+    height: 22px;
     position: relative;
 }
 .music-play-stat::after{
     border-radius: 20px;
     content: "";
     position: absolute;
-    width: var(--width);
+    width: var(--before-width);
     height: 100%;;
     background: var(--secondary-clr);
 }
@@ -151,18 +152,27 @@ p{
     transform: scale(1.1);
 }
 .clear-rotate{
-    animation: clearAnimation 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation: clearAnimation 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+p{
+    pointer-events: none;
+}
+.main{
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
 }
 @keyframes clearAnimation{
     0%{
-        transform: rotate(0);
+        transform: rotate(0deg);
     }
     100%{
-        transform: rotate(180deg);
+        transform: rotate(360deg);
     }
 }
  @media (min-width: 800px){
-    .bars{
+    .bars,.main{
         justify-content: start;
     }
  } 

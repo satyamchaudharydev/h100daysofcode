@@ -1,4 +1,5 @@
 const bar = document.querySelectorAll('.bar');
+const baru = document.querySelector('.bar')
 const play = document.querySelector('.play');
 const bars1 = document.querySelector('.bars1');
 const bars2 = document.querySelector('.bars2');
@@ -12,8 +13,20 @@ const audio2 = document.querySelector('.hihat');
 const audio3 = document.querySelector('.kick');
 const stop = document.querySelector('.stop');
 const clear = document.querySelector('.clear');
+const redo = document.querySelector('.fa-redo');
+const playStat = document.querySelector('.music-play-stat')
+
+let barCount = 6;
+let no = baru.offsetWidth*6+100+"px";
+playStat.style.setProperty('--width',`${no}`);
 
 
+window.addEventListener('resize', function(event) {
+    let no = baru.offsetWidth*6+100+"px";
+    playStat.style.setProperty('--width',`${no}`);
+
+
+}, true);
 
 
 let data = [];
@@ -159,7 +172,7 @@ stop.addEventListener("click",() =>{
 
 // clear
 clear.addEventListener("click",() =>{
-        clear.classList.add('clear-animation')
+        redo.classList.toggle('clear-rotate')
         bar.forEach(el => el.classList.remove('update'))
     
 })
