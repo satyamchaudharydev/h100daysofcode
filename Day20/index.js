@@ -14,20 +14,11 @@ const audio3 = document.querySelector('.kick');
 const stop = document.querySelector('.stop');
 const clear = document.querySelector('.clear');
 const redo = document.querySelector('.fa-redo');
-const playStat = document.querySelector('.music-play-stat')
+const playStat = document.querySelector('.music-play-stat');
+const playCircle = document.querySelector('.moving-circle');
+const movingLine = document.querySelector('.moving-line')
 
-let barCount = 6;
-let no = baru.offsetWidth*6+100+"px";
-playStat.style.setProperty('--width',`${no}`);
-
-
-window.addEventListener('resize', function(event) {
-    let no = baru.offsetWidth*6+100+"px";
-    playStat.style.setProperty('--width',`${no}`);
-
-
-}, true);
-
+ 
 
 let data = [];
 let currentBeat = 0;
@@ -176,3 +167,61 @@ clear.addEventListener("click",() =>{
         bar.forEach(el => el.classList.remove('update'))
     
 })
+
+
+// dragging
+let pos;
+// let indexPos = 0;
+
+playCircle.addEventListener('drag',(event) => {
+    pos = event.clientX + 'px';
+    movingLine.style.width = pos;
+
+    document.querySelector(':root').style.setProperty('--left',`${event.clientX}` +'px');
+})
+// if(indexPos ===1){
+// console.log(pos);
+// }
+playCircle.addEventListener('dragend',(event) => {
+    event.preventDefault();
+        document.querySelector(':root').style.setProperty('--left',`${event.clientX}` +'px');
+
+    movingLine.style.width = event.clientX + 'px';
+
+})
+
+// playCircle.addEventListener("dragover", function(event) {
+//     // prevent default to allow drop
+//     event.preventDefault();
+
+//     console.log("over")
+
+//   }, false);
+  
+//   document.addEventListener("dragenter", function(event) {
+//     // highlight potential drop target when the draggable element enters it
+//     event.preventDefault();
+//     console.log("enter")
+
+
+   
+  
+//   }, false);
+  
+  document.addEventListener("dragleave", function(event) {
+    // reset background of potential drop target when the draggable element leaves it
+    event.preventDefault();  
+  }, false);
+  
+//   document.addEventListener("drop", function(event) {
+//     // prevent default action (open as link for some elements)
+//     event.preventDefault();
+//     console.log("drop")
+
+//     // move dragged elem to the selected drop target
+//     // if (event.target.className == "dropzone") {
+//     //   event.target.style.background = "";
+//     //   dragged.parentNode.removeChild( dragged );
+//     //   event.target.appendChild( dragged );
+//     // }
+//   }, false);
