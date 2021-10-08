@@ -14,6 +14,7 @@
 body{
     background: var(--main-bg-clr);
     margin: 0;
+    /* filter:invert(34deg); */
 }
 .container{
     display: grid;
@@ -216,3 +217,92 @@ p{
         justify-content: start;
     }
  } 
+ .added-icon{
+    
+     position: relative;
+ }
+ .added-icon::after,.added-icon::before{
+    position: absolute;
+    content: '';
+    box-shadow: 2px 2px 10px #000;
+    background: #000;
+    /* right: 0; */
+    height: 50%;
+ }
+ .added-icon::after{
+     right: 10px;
+     width: 2px;
+
+ }
+
+ .added-icon::before{
+    right: 10px;
+    width: 8px;
+    clip-path: inset(5% 63% 15% 10%);
+    background: black;
+    transform: rotate(0);
+}
+ /* .added-icon::after{
+     left: 0;
+     background: red;
+ } */
+ .input.btn{
+     justify-items: stretch;
+     align-items: center;
+ }
+ .input-box{
+     display: grid;
+     align-items: center;
+     grid-template-columns: auto 1fr auto;
+ }
+
+ .input-box-circle-start{
+    width: 15px; height: 15px;
+    border-radius: 50%;
+    background: var(--secondary-clr);
+ }
+ .input-box-line{
+     height: 2px;
+     background: #fff;
+     position: relative;
+
+ }
+ .input-box-circle-end{
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+.bpm-text{
+    font-size: 13px;
+    justify-self: center;
+    color: #fff;
+}
+.input-slider{
+    width: 80%;
+    background: var(--secondary-clr);
+    height: 7px;
+    top: -2px;
+    left: -2px;
+    position: absolute;
+}
+.input-slider-circle{
+    position: absolute;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    right: 17px;
+    top: -8px;
+    background: #ffF;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: 4px;
+}
+
+.circle-line{
+    background: grey;
+    opacity: 0.3;
+    width: 60%;
+    
+    height: 1px;
+}

@@ -24,10 +24,10 @@ let data = [];
 let currentBeat = 0;
 let interval;
 let intervalFunction;
-let timing = 300;
+let timing = 200;
 let click = 0;
 let index = 0;
-
+let leftPos = 0;
 
 
 const checkParent = ((child) => {
@@ -69,6 +69,7 @@ const barClick = (index) => {
 const playPause = (inter) => {
     if(index === 0){
         index = 1;
+
         console.log("added");
         fa.classList.replace('fa-play','fa-pause');
         playText.innerText = "Pause";
@@ -100,7 +101,6 @@ play.addEventListener("click", () => {
     playPause(interval);
     const playBeat = (currentBeat) => {
         data.forEach((el,index) => {
-            console.log(index,el)
             if(data[index][currentBeat]){
                 data[index][currentBeat].classList.add('scale');
     
@@ -109,6 +109,7 @@ play.addEventListener("click", () => {
         
         if (data[0][currentBeat].classList.contains("update")) {
         audio1.play();
+        
         }
 
         if (data[1][currentBeat].classList.contains("update")) {
@@ -125,18 +126,25 @@ play.addEventListener("click", () => {
      intervalFunction = (time) => {
     interval =  setInterval(() => {
         playBeat(currentBeat)
-        
+        movingLine.style.width = `${leftPos}` +'px';
+
+        document.querySelector(':root').style.setProperty('--left',`${leftPos}` +'px');
+
         bar.forEach((el,index)=>{
             if (index !== currentBeat && index !== currentBeat + 6 && index !== currentBeat + 12 && index !== currentBeat + 18 && index !== currentBeat + 24){
                     el.classList.remove('scale');
               }
             })
             if (currentBeat === 5) {
-                currentBeat = 0
+                currentBeat = 0;
+                leftPos =  0;
             }
             else {
+                leftPos += 87;
+
                 currentBeat += 1
             }
+
         }, time)
     }
 
@@ -173,7 +181,7 @@ clear.addEventListener("click",() =>{
 let pos;
 // let indexPos = 0;
 
-playCircle.addEventListener('drag',(event) => {
+playCircle.addEventListener('dragstart',(event) => {
     pos = event.clientX + 'px';
     movingLine.style.width = pos;
 
@@ -189,39 +197,3 @@ playCircle.addEventListener('dragend',(event) => {
     movingLine.style.width = event.clientX + 'px';
 
 })
-
-// playCircle.addEventListener("dragover", function(event) {
-//     // prevent default to allow drop
-//     event.preventDefault();
-
-//     console.log("over")
-
-//   }, false);
-  
-//   document.addEventListener("dragenter", function(event) {
-//     // highlight potential drop target when the draggable element enters it
-//     event.preventDefault();
-//     console.log("enter")
-
-
-   
-  
-//   }, false);
-  
-  document.addEventListener("dragleave", function(event) {
-    // reset background of potential drop target when the draggable element leaves it
-    event.preventDefault();  
-  }, false);
-  
-//   document.addEventListener("drop", function(event) {
-//     // prevent default action (open as link for some elements)
-//     event.preventDefault();
-//     console.log("drop")
-
-//     // move dragged elem to the selected drop target
-//     // if (event.target.className == "dropzone") {
-//     //   event.target.style.background = "";
-//     //   dragged.parentNode.removeChild( dragged );
-//     //   event.target.appendChild( dragged );
-//     // }
-//   }, false);
