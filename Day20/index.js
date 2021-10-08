@@ -24,7 +24,7 @@ let data = [];
 let currentBeat = 0;
 let interval;
 let intervalFunction;
-let timing = 200;
+let timing = 100;
 let click = 0;
 let index = 0;
 let leftPos = 0;
@@ -109,7 +109,7 @@ play.addEventListener("click", () => {
         
         if (data[0][currentBeat].classList.contains("update")) {
         audio1.play();
-        
+
         }
 
         if (data[1][currentBeat].classList.contains("update")) {
