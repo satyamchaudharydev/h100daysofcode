@@ -23,16 +23,20 @@
                 <p>Hide</p>
             </div> -->
             <div class="clear btn">
-                <i class="fas fa-redo "></i>
+                <div class="menu-icon">
+                    <i class="fas fa-redo "></i>
+                </div>
                 <p>Clear</p>
             </div>
             <div class="play btn">
-                <i class="fa fa-play" aria-hidden="true"></i>
-                <p class="play-text">Pause</p>
+                <div class="menu-icon">
+                    <i class="fas fa-play "></i>
+                </div>                <p class="play-text">Pause</p>
             </div>
             <div class="stop btn">
-                <i class="fa fa-stop-circle" aria-hidden="true"></i>
-                <p>Stop</p>
+                <div class="menu-icon">
+                    <i class="fas fa-stop "></i>
+                </div>                <p>Stop</p>
             </div>
             
             <div class="input btn">
@@ -52,12 +56,14 @@
                 <p class="bpm-text">230 bpm</p>
             </div>
             <div class="list btn">
-                <i class="fas fa-music"></i>
-                <p>Add Music</p>
+                <div class="menu-icon">
+                    <i class="fas fa-music"></i>
+                </div>                <p>Add Music</p>
             </div>
             <div class="record btn">
-                <i class="fas fa-record-vinyl"></i>
-                <p>Record</p>
+                <div class="menu-icon">
+                    <i class="fas fa-record-vinyl"></i>
+                </div>                <p>Record</p>
             </div>
         </div>
      
@@ -99,6 +105,7 @@
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
+                
  
             </div>
             <div class="bars bars2">
@@ -139,6 +146,49 @@
     
        </div> 
 </body>
+<script type="module">
+    import interact from 
+    'https://cdn.interactjs.io/v1.10.11/interactjs/index.js'
+    
+    interact('.moving-circle').draggable({
+     
+        onmove(event) {
+            const movingLine = document.querySelector('.moving-line')
+
+            document.querySelector(':root').style.setProperty('--left',`${event.clientX}` +'px');
+            movingLine.style.width =  event.clientX + 'px';
+
+          
+        
+      }
+    })
+    interact('.input-slider-circle').draggable({
+     
+     onmove(event) {
+         const slider = document.querySelector('.input-slider');
+         const sliderCircle = document.querySelector('.input-slider-circle')
+        
+         const varr = (event.clientX - slider.getBoundingClientRect().x)
+         if(Math.floor(slider.getBoundingClientRect().x  - 11.125) !== Math.floor(event.clientX)){
+            slider.style.width = 10+ varr + 'px';
+         sliderCircle.style.left = varr + 'px';
+         }
+      
+        else{
+            silder.style.background = 'red';
+            console.log('not')
+        }
+        console.log()
+
+    //    console.log("hi",Math.floor(slider.getBoundingClientRect().x  - 14.125),
+    //    Math.floor(event.clientX))
+     
+   }
+   
+ })
+
+    </script>
 <script src="index.js"></script>
+
 
 </html>

@@ -13,22 +13,26 @@ const audio2 = document.querySelector('.hihat');
 const audio3 = document.querySelector('.kick');
 const stop = document.querySelector('.stop');
 const clear = document.querySelector('.clear');
+const barsSection = document.querySelector('.bars-section');
+
 const redo = document.querySelector('.fa-redo');
 const playStat = document.querySelector('.music-play-stat');
 const playCircle = document.querySelector('.moving-circle');
 const movingLine = document.querySelector('.moving-line')
-
- 
-
+const addedIcon = document.querySelectorAll('.added-icon')
 let data = [];
 let currentBeat = 0;
 let interval;
 let intervalFunction;
-let timing = 100;
+let timing = 300;
 let click = 0;
 let index = 0;
-let leftPos = 0;
+let leftPos = 10;
 
+console.log(bar.length/5)
+const scalePlay = () => {
+    return ;
+}
 
 const checkParent = ((child) => {
     if (bars1.contains(child)){
@@ -42,8 +46,10 @@ const checkParent = ((child) => {
     }
 
 })
+const call = () => {
+    return index !== currentBeat && index !== currentBeat + 6 && index !== currentBeat + 12 && index !== currentBeat + 18 && index !== currentBeat + 24
+}
 data.push(bars1.children,bars2.children,bars3.children,bars3.children,bars4.children,bars5.children);
-console.log(data)
 
 const barClick = (index) => {
     bar.forEach((element, i) => {
@@ -109,23 +115,42 @@ play.addEventListener("click", () => {
         
         if (data[0][currentBeat].classList.contains("update")) {
         audio1.play();
+        addedIcon[0].classList.add('update-icon')
+
+        }
+        else{
+
+             addedIcon[0].classList.remove('update-icon')
 
         }
 
         if (data[1][currentBeat].classList.contains("update")) {
         audio2.play();
+        addedIcon[1].classList.add('update-icon')
+
+
+        }
+        else{
+            addedIcon[1].classList.remove('update-icon')
         }
     
         if (data[2][currentBeat].classList.contains("update")
         ) {
         audio3.play()
+        addedIcon[2].classList.add('update-icon')
+
+
         }
-    
+        else{
+            addedIcon[2].classList.remove('update-icon')
+
+        }
     }
    
      intervalFunction = (time) => {
     interval =  setInterval(() => {
         playBeat(currentBeat)
+        barsSection.classList.add('update-bars-section');
         movingLine.style.width = `${leftPos}` +'px';
 
         document.querySelector(':root').style.setProperty('--left',`${leftPos}` +'px');
@@ -137,11 +162,11 @@ play.addEventListener("click", () => {
             })
             if (currentBeat === 5) {
                 currentBeat = 0;
-                leftPos =  0;
+                leftPos =  20;
+
             }
             else {
-                leftPos += 87;
-
+                leftPos += 85;
                 currentBeat += 1
             }
 
@@ -158,14 +183,19 @@ let stopCount = 0;
 stop.addEventListener("click",() =>{
     if(stopCount === 0){
     currentBeat = 0;
+    // leftPos = 0;
+
     clearInterval(interval);
+
     interval = null; 
+    leftPos = 0;
     bar.forEach(el => el.classList.remove('scale'))
     stopCount = 1;
     }
     else{
         intervalFunction(timing);
         stopCount = 0;
+
     }
 })
 
@@ -175,25 +205,18 @@ clear.addEventListener("click",() =>{
         bar.forEach(el => el.classList.remove('update'))
     
 })
+let barLisy =0;
+document.querySelector('.list').addEventListener('click',() =>{
+    console.log("clicked");
+    // Create a new paragraph element, and append it to the end of the document body
+    let div = document.createElement("div");
+    div.classList.add('bar')
+    bars1.appendChild(div);
+    bars2.appendChild(div);
+    bars3.appendChild(div);
+    bars4.appendChild(div);
+    bars5.appendChild(div);
 
-
-// dragging
-let pos;
-// let indexPos = 0;
-
-playCircle.addEventListener('dragstart',(event) => {
-    pos = event.clientX + 'px';
-    movingLine.style.width = pos;
-
-    document.querySelector(':root').style.setProperty('--left',`${event.clientX}` +'px');
-})
-// if(indexPos ===1){
-// console.log(pos);
-// }
-playCircle.addEventListener('dragend',(event) => {
-    event.preventDefault();
-        document.querySelector(':root').style.setProperty('--left',`${event.clientX}` +'px');
-
-    movingLine.style.width = event.clientX + 'px';
 
 })
+
