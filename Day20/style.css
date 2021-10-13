@@ -10,6 +10,7 @@
 }
 *{
     box-sizing: border-box;
+    touch-action: none;
     font-family: 'Red Hat Display', sans-serif;}
 body{
     background: var(--main-bg-clr);
@@ -160,7 +161,7 @@ p{
     display: grid;
     gap: 20px;
     position: relative;
-
+    overflow-y: scroll;
     /* overflow-x: hidden; */
 }
 .bars{  
