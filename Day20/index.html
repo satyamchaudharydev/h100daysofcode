@@ -210,6 +210,7 @@ document.querySelector('.list').addEventListener('click',() =>{
         const barElm = div.classList.add('bar');
     el.appendChild(div);
 
+
     })
         console.log(bar)
 
@@ -357,18 +358,25 @@ play.addEventListener("click", () => {
      intervalFunction = (time) => {
     interval =  setInterval(() => {
         playBeat(currentBeat)
-        barsSection.classList.add('update-bars-section');
+        document.querySelector('.beat-play-section').classList.add('update-bars-section');
         movingLine.style.width = `${leftPos}` +'px';
 
-        document.querySelector(':root').style.setProperty('--left',`${leftPos}` +'px');
+        document.querySelector(':root').style.setProperty('--left',`${leftPos + 60}` +'px');
             if (currentBeat ===  bars1.children.length - 1) {
                 currentBeat = 0;
-                leftPos =  0;
+                leftPos =  60;
 
             }
+
             else {
                 leftPos += 85;
                 currentBeat += 1
+            }
+            if(currentBeat > 13){
+                barsSection.scrollTo(1200, 0);
+            }
+            else{
+                barsSection.scrollTo(0, 0); 
             }
 
         }, time)

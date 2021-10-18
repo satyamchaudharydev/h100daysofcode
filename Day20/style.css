@@ -3,9 +3,9 @@
     --secondary-clr: #51A6F0;
 
     --main-bg-clr: #0E1024;
-    --menu-bg-clr:  ;
-    --left: 30px;
-    --width:0px ;
+    /* --menu-bg-clr:  ; */
+    --left: 62px;
+    --width: 0px ;
     --text-clr: rgba(255, 255, 255, 0.871);
 }
 *{
@@ -126,6 +126,7 @@ p{
     height: 20px;
     border-radius: 50%;
     cursor: pointer;
+    z-index: 3;
     background: #fff;
 }
 .beat-play-section{
@@ -135,25 +136,24 @@ p{
     grid-template-areas: "music-state music-stat"
                         "music-icon music-block";
     gap: 20px;
+    position: relative;
 }
 .hider{
     grid-area: music-state;
 }
-.bars-section::before{
+.beat-play-section::before{
     content: "";
     position: absolute;
     width: 2px;
     left: var(--left);
-    z-index: 2;
-    top: -20px;
-    display: none;
-
+    /* display: none; */
+    z-index: 1;
     /* border-top-left-radius: 10px; */
     background: var(--secondary-clr);
-    height: 105%;
+    height: 100%;
 }
 .update-bars-section::before{
-    display: block;
+    /* display: block; */
 
 }
 

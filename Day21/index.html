@@ -4,34 +4,136 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <div class="grids">
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-            <div class="grid" draggable="true"></div>
-        </div>
+       <div class="user-info">
+            <div class="info">
+                <img src="./images/user.png" alt="">
+                <p class="report-text">Report for</p>
+                <h2 class="user-text">Jeremy <br>Robson</h2>
+            </div>
+
+            <div class="time">
+                <h4 class="daily">Daily</h4>
+                <h4 class="week update">Weekly</h4>
+                <h4 class="month">Monthly</h4>
+            </div>
+       </div>
+        <!-- <div class="card-container"> -->
+            <div class="card work">
+                <div style="background: var(--work);" class="img-section">
+                    <img src="./images/icon-work.svg" alt="">
+                </div>
+                <div class="card-desc">
+                    <div class="card-header">
+                        <div class="card-title">Work</div>
+                        <div class="card-menu">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                    <div class="card-time">32hrs</div>
+                    <p class="recent">Last Week-36hrs</p>
+                </div>
+            </div>
+
+            <div class="card play">
+                <div style="background: var(--play);" class="img-section">
+                    <img src="./images/icon-play.svg" alt="">
+                </div>
+                <div class="card-desc">
+                    <div class="card-header">
+                        <div class="card-title">Play</div>
+                        <div class="card-menu">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                    <div class="card-time">10hrs</div>
+                    <p class="recent">Last Week-8hrs</p>
+                </div>
+                </div>
+
+            <div class="card study">
+                <div  style="background: var(--study)" class="img-section">
+                    <img src="./images/icon-study.svg" alt="">
+                </div>
+                <div class="card-desc">
+                    <div class="card-header">
+                        <div class="card-title">Study</div>
+                        <div class="card-menu">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                    <div class="card-time">4hrs</div>
+                    <p class="recent">Last Week-7hrs</p>
+                </div>
+            </div>
+
+            <div class="card excercise">
+                <div class="img-section" style="background: var(--exercise)" >
+                    <img src="./images/icon-exercise.svg" alt="">
+                </div>
+                <div class="card-desc">
+                    <div class="card-header">
+                        <div class="card-title">Exercise</div>
+                        <div class="card-menu">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                    <div class="card-time">4hrs</div>
+                    <p class="recent">Last Week-36hrs</p>
+                </div>
+            </div>
+            <div class="card social">
+                <div  style="background: var(--social)" class="img-section">
+                    <img src="./images/icon-social.svg" alt="">
+                </div>
+                <div class="card-desc">
+                    <div class="card-header">
+                        <div class="card-title">Social</div>
+                        <div class="card-menu">
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                            <div class="dot"></div>
+                        </div>
+                    </div>
+                    <div class="card-time">5hrs</div>
+                    <p class="recent">Last Week-36hrs</p>
+                </div>
+            </div>
+            <div class="card self-care">
+                <div class="img-section" style="background: var(--self-care)">
+                    <img src="./images/icon-self-care.svg" alt=""></div>
+                    <div class="card-desc">
+                        <div class="card-header">
+                            <div class="card-title">Self-care</div>
+                            <div class="card-menu">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="card-time">2hrs</div>
+                            <p class="recent">Last Week-36hrs</p>
+                        </div>
+                    </div>
+            </div>
+        <!-- </div> -->
     </div>
 </body>
-<script src="scipt.js"></script>
+<script src="script.js"></script>
 </html>
