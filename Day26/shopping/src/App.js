@@ -8,9 +8,16 @@ function App() {
   const [counter, setCounter] = useState(0);
   const [value, setValue] = useState(1);
   const [show, setShow] = useState(true);
-
+  const [menu,setMenu] = useState(false)
   const [main, setMain] = useState(false);
 
+  if(menu){
+    document.querySelector('#root').classList.add('overflow')
+  }
+  else{
+        document.querySelector("#root").classList.remove("overflow");
+
+  }
   useEffect(() => {
     const lastSlide = images.length - 1;
     console.log(value);
@@ -75,8 +82,26 @@ function App() {
         </div>
       )}
 
-      <div className="container">
-        <Nav counter={counter} />
+      <div className={`container ${menu && "bg"}`}>
+        {menu && (
+          <div className="mobile-menu">
+            <div className="close" onClick={() => setMenu(false)}>
+              <img src="./images/icon-close.svg" alt="" srcset="" />
+            </div>
+            <div className="item">Collections</div>
+            <div className="item">Men</div>
+            <div className="item">Women</div>
+            <div className="item">About</div>
+            <div className="item">Contact</div>
+          </div>
+        )}
+
+        <Nav
+          counter={counter}
+          setCounter={setCounter}
+          menu={menu}
+          setMenu={setMenu}
+        />
         <div className="main">
           <div className="overlay">
             <div className="prev-btn" onClick={() => setValue(value - 1)}>

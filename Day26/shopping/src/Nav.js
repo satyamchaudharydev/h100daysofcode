@@ -1,12 +1,12 @@
 import { React, useState } from "react";
 
-const Nav = ({ counter }) => {
+const Nav = ({ counter, menu, setMenu, setCounter }) => {
   const [popup, setpopup] = useState(false);
-  const [dlt,setDlt] = useState(true)
+
   return (
     <>
       <div className="nav">
-        <div className="menu">
+        <div className="menu" onClick={() => setMenu(true)}>
           <img src="./images/icon-menu.svg" alt="" />
         </div>
         <h2 className="logo">
@@ -39,7 +39,7 @@ const Nav = ({ counter }) => {
                     <span className="cart-result">${125 * counter}</span>
                   </p>
                 </div>
-                <div className="dlt-btn" onClick={() => setDlt(true)}>
+                <div className="dlt-btn" onClick={() => setCounter(0)}>
                   <img src="./images/icon-delete.svg" alt="" srcset="" />
                 </div>
               </div>
@@ -48,7 +48,7 @@ const Nav = ({ counter }) => {
                 <p>Your Cart is empty</p>
               </div>
             )}
-            {counter !== 0 && dlt && (
+            {counter !== 0 && (
               <div className="checkout-btn">Checkout</div>
             )}
           </div>

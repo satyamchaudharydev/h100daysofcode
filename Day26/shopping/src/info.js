@@ -1,6 +1,7 @@
 import React from "react";
 
 const Info = ({ counter, setCounter }) => {
+
   return (
     <>
       <div className="info">
