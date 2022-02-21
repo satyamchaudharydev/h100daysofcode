@@ -22,10 +22,12 @@ export const CompanyResult = () => {
         {!loading && !companyError ? (
           <>
             <div className="company-results">
-              {addressList.map((item, index) => {
-                const { name, number } = item;
-                return <CompanyCard text={name} id={number} />;
-              })}
+              <div className="company-wrapper">
+                {addressList.map((item, index) => {
+                  const { name, number } = item;
+                  return <CompanyCard text={name} id={number} />;
+                })}
+              </div>
             </div>
           </>
         ) : (

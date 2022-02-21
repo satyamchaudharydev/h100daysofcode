@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { React, useState } from "react";
 import { useProvider } from "./StateContext";
+import click from "./audio/click.wav";
+
 const color = ["#31c3bd", "#f2b137", "#a8bfc9", "#1a2a33"];
+const wonSound = new Audio(click);
 
 export const Square = ({
   handleClick,
@@ -14,25 +17,23 @@ export const Square = ({
 }) => {
   const [click, setClick] = useState(false);
   const { gameOver, whoIsWinner } = useProvider();
- 
+
   useEffect(() => {
-  if (gameOver) {
-    setClick(false);
-  }
-  }, [gameOver])
+    if (gameOver) {
+      setClick(false);
+    }
+  }, [gameOver]);
   function winner() {
     return winnerArray.includes(index);
   }
-  function setColor(){
-    if(winner() && whoIsWinner === "X"){
+  function setColor() {
+    if (winner() && gameOver === "X") {
       return color[0];
-    }
-    else if(winner() && whoIsWinner === "O"){
+    } else if (winner() && gameOver === "O") {
       return color[1];
+    } else {
+      return color[4];
     }
-   else{
-     return color[4]
-   }
   }
 
   return (
@@ -40,11 +41,12 @@ export const Square = ({
       className={`square ${winner() && "winner"}`}
       style={{ backgroundColor: setColor() }}
       onClick={() => {
+        wonSound.play()
         handleClick(index);
         setClick(true);
       }}
     >
-      {(!value && !gameOver) && (
+      {!value && !gameOver && (
         <span className="hover-img">
           {text === "X" ? (
             <img src="../assets/icon-x-outline.svg" alt="" srcset="" />

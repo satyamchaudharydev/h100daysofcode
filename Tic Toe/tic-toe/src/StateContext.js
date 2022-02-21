@@ -11,7 +11,7 @@ export function Provider({ children }) {
 const [gameOver,setGameOver] = useState(false);
 const [whoIsWinner, setWhoIsWinner] = useState(false);
 const [result,setResult] = useState(false);
-
+const [restart,setRestart] = useState(false)
   function convertToSVG(text, size, color) {
     if (text === "X") {
       return (
@@ -52,6 +52,8 @@ const [result,setResult] = useState(false);
   const value = {
     convertToSVG,
     result,
+    restart,
+    setRestart,
     gameOver,
     setGameOver,
     setWhoIsWinner,

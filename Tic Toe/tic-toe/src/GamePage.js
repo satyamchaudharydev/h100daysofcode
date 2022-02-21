@@ -4,13 +4,25 @@ import { Square } from "./Square";
 import { Logo } from "./Logo";
 import { useProvider } from "./StateContext";
 import { WinnerShower } from "./WinnerShower";
+import click from "./audio/click.wav";
+import win from "./audio/positive_score.wav";
+
+// import  from "./audio/won.wav";
+const clickSound = new Audio(click);
+const winSound = new Audio(win);
 export const GamePage = () => {
-  const { convertToSVG, gameOver, setGameOver, setWhoIsWinner, whoIsWinner } =
-    useProvider();
+  const {
+    convertToSVG,
+    restart,
+    setRestart,
+    gameOver,
+    setGameOver,
+    setWhoIsWinner,
+    whoIsWinner,
+  } = useProvider();
   const [board, setBoard] = useState(Array(9).fill(""));
 
   const [text, setText] = useState("X");
-  const [click, setClick] = useState(0);
   const [is, setIs] = useState(false);
   const [count, setCount] = useState(null);
   const [winnerArray, setWinnerArray] = useState([]);
@@ -38,15 +50,17 @@ export const GamePage = () => {
       setComputerMove(true);
       setText(lsplayer);
     }
-    if (
-      localStorage.getItem("xscore") ||
-      localStorage.getItem("oscore") ||
-      localStorage.getItem("tie")
-    ) {
-      setXScore(localStorage.getItem("xscore"));
-      setOScore(localStorage.getItem("oscore"));
-      setTie(localStorage.getItem("tie"));
-    }
+    // if (
+    //   localStorage.getItem("xscore") ||
+    //   localStorage.getItem("oscore") ||
+    //   localStorage.getItem("tie")
+    // ) {
+    //   console.log(xscore,oscore,tie,"hi")
+
+    //   setXScore(localStorage.getItem("xscore"));
+    //   setOScore(localStorage.getItem("oscore"));
+    //   setTie(localStorage.getItem("tie"));
+    // }
   }, []);
 
   useEffect(() => {
@@ -57,16 +71,12 @@ export const GamePage = () => {
     }
   }, [gameOver]);
   useEffect(() => {
-    console.log("useEffecy")
-    console.log(xscore,oscore,tie)
+    console.log(xscore, oscore, tie);
     localStorage.setItem("xscore", xscore);
     localStorage.setItem("oscore", oscore);
     localStorage.setItem("tie", tie);
   }, [xscore, oscore, tie]);
-  // if (gameOver) {
-  //   console.log("hi", xscore, oscore, tie);
-  //
-  // }
+
   const checkWinner = (newBoard) => {
     // logic for draw
 
@@ -89,20 +99,22 @@ export const GamePage = () => {
     for (let combo in winningCombinations) {
       for (let com of winningCombinations[combo]) {
         if (
+          newBoard[com[0]] === "" &&
+          newBoard[com[1]] === "" &&
+          newBoard[com[2]] === ""
+        ) {
+        } else if (
           newBoard[com[0]] === newBoard[com[1]] &&
-          newBoard[com[1]] === newBoard[com[2]] &&
-          newBoard[com[0]] !== ""
+          newBoard[com[1]] === newBoard[com[2]]
         ) {
           setWinnerArray([com[0], com[1], com[2]]);
           setGameOver(newBoard[com[0]]);
+          winSound.play()
           setWhoIsWinner(true);
           return;
         }
       }
     }
-
-    console.log(winnerArray, gameOver);
-
     if (newBoard.every((item) => item !== "")) {
       setGameOver("draw");
       return;
@@ -146,7 +158,7 @@ export const GamePage = () => {
 
   return (
     <>
-      {gameOver && (
+      {(gameOver || restart) && (
         <WinnerShower
           setWinnerArray={setWinnerArray}
           setBoard={setBoard}
@@ -161,7 +173,9 @@ export const GamePage = () => {
             {convertToSVG(text, 18, "#a8bfc9")}
             <p>TURN</p>
           </div>
-          <div className="restart-btn">
+          <div className="restart-btn" onClick={() => {
+            clickSound.play();
+            setRestart(!restart)}}>
             <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M19.524 0h-1.88a.476.476 0 0 0-.476.499l.159 3.284A9.81 9.81 0 0 0 9.835.317C4.415.317-.004 4.743 0 10.167.004 15.597 4.406 20 9.835 20a9.796 9.796 0 0 0 6.59-2.536.476.476 0 0 0 .019-.692l-1.348-1.349a.476.476 0 0 0-.65-.022 6.976 6.976 0 0 1-9.85-.63 6.987 6.987 0 0 1 .63-9.857 6.976 6.976 0 0 1 10.403 1.348l-4.027-.193a.476.476 0 0 0-.498.476v1.881c0 .263.213.476.476.476h7.944A.476.476 0 0 0 20 8.426V.476A.476.476 0 0 0 19.524 0Z"

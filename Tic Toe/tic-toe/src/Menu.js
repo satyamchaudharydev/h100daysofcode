@@ -3,6 +3,9 @@ import { ChooseItem } from "./ChooseItem";
 import { Logo } from "./Logo";
 import { useProvider } from "./StateContext";
 import { useNavigate } from "react-router-dom";
+import click from "./audio/click.wav";
+const clickSound = new Audio(click);
+
 const moves = ["X", "O"];
 export const Menu = () => {
   const [value, setValue] = useState(0);
@@ -14,8 +17,12 @@ export const Menu = () => {
   }, []);
   let navigate = useNavigate();
   function gameType(check) {
+    playSound()
     localStorage.setItem("computer", check);
     navigate("/game");
+  }
+  function playSound() {
+    clickSound.play();
   }
   return (
     <>
@@ -28,6 +35,7 @@ export const Menu = () => {
               <ChooseItem
                 move={move}
                 index={index}
+                playSound={playSound}
                 value={value}
                 setValue={setValue}
                 convertToSVG={convertToSVG}

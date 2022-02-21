@@ -1,11 +1,12 @@
 import React from "react";
 const color = ["#31c3bd", "#f2b137", "#a8bfc9", "#1a2a33"];
 
-export const ChooseItem = ({ value, index, setValue, move, convertToSVG }) => {
+export const ChooseItem = ({ value, index, setValue,playSound, move, convertToSVG }) => {
   return (
     <div
       className={`choose-item ${value === index && "active"}`}
       onClick={() => {
+        playSound()
         setValue(index);
         localStorage.setItem("player", move);
       }}

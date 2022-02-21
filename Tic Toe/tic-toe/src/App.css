@@ -22,6 +22,7 @@ p {
 button {
   border: none;
   background: none;
+  text-transform: uppercase;
 }
 #root {
   display: flex;
@@ -220,6 +221,7 @@ button {
 }
 /* winner-shower */
 .winner-shower-wrapper {
+  text-transform: uppercase;
   position: absolute;
   z-index: 4;
   height: 100vh;
@@ -251,15 +253,16 @@ button {
 
   font-size: 40px;
 }
-.quit-btn,
-.next-round {
+.winner-button-container > button{
+  /* padding-block: 8px;  */
+  letter-spacing: 1px;
 }
 .winner-button-container {
   display: flex;
   gap: 10px;
 }
-.quit-btn {
-  padding: 10px;
+.quit-btn,.cancel-btn {
+  padding: 13px;
   background: var(--grey);
   font-weight: bold;
   font-size: 16px;
@@ -267,7 +270,7 @@ button {
   border-radius: 10px;
 }
 .next-round {
-  padding: 10px;
+  padding: 13px;
   background: var(--yellow);
   font-weight: bold;
   font-size: 16px;
