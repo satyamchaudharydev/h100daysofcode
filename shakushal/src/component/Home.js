@@ -6,17 +6,24 @@ import HairSection from "./HairSection";
 import NutriSection from "./Nutritionsection";
 import Collections from "./Collections";
 import Footer from "./Footer";
+import { ShoppingCart } from "./ShoppingCart";
+import { useAuth } from "../contexts/AuthContext";
 const Home = () => {
+
   return (
     <>
+      <ShoppingCart />
+
       <Nav />
-      <Carousel />
-      <ProductInfo />
-      <HealthConcern />
-      <HairSection />
-      <Collections />
-      <NutriSection />
-      <Footer />
+      <div className="home-wrapper">
+        <Carousel />
+        <ProductInfo />
+        <HealthConcern />
+        <HairSection />
+        <Collections />
+        <NutriSection />
+        <Footer />
+      </div>
     </>
   );
 };

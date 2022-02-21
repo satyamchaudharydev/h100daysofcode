@@ -1,13 +1,28 @@
 import product from "../data/productInfoData";
 import ProductSection from "./ProductSection";
-const HairSection =  () => {
-    return (
-      <>
-        <ProductSection
-          heading={"Best Selling Skin & Hair Care"}
-          info={product.filter((item) => item.category === "hair")}
-        />
-      </>
+import { Title } from "./Title";
+import { useAuth } from "../contexts/AuthContext";
+import { useState, useEffect } from "react";
+
+const HairSection = () => {
+  const { productList, getData, dataLoading } = useAuth();
+
+  const [filterProduct, setFilterProduct] = useState([]);
+  useEffect(() => {
+    getData();
+    setFilterProduct(
+      productList.filter((item) => item.category === "hair")
     );
-}
-export default HairSection
+  }, [dataLoading]);
+  return (
+    <>
+      <ProductSection
+        heading={
+          <Title text={"Best Selling"} span={" Hair & Products"}></Title>
+        }
+        info={filterProduct}
+      />
+    </>
+  );
+};
+export default HairSection;

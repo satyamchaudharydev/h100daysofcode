@@ -1,10 +1,19 @@
-import product from "../data/productInfoData";
-
-const Tag = ({ text, setTagState, setFilterProduct, tagstate, index }) => {
+const Tag = ({
+  text,
+  filterProduct,
+  setTagState,
+  setFilterProduct,
+  tagstate,
+  list,
+  productList,
+  index,
+}) => {
   return (
     <p
       onClick={() => {
-        setFilterProduct(product.filter(item => item.category === text));
+        setFilterProduct(
+          productList.filter((item) => item.category === text)
+          );
         setTagState(index);
       }}
       className={tagstate === index && "active-tag"}

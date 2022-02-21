@@ -2,12 +2,13 @@ import healthconcern from "../data/healthconcernData"
 import { React, useState } from "react";
 import PrevButton from "../PrevButton";
 import NextButton from "../NextButton";
+import { Title } from "./Title";
 const HealthConcern = () => {
     const [marginhealth,setMarginHealth] = useState(0)
     return (
       <>
-        <div className="health">
-          <h1 className="title">Shop by Health Concerns</h1>
+        <div className="health product-home">
+         <Title text={'Shop by'} span={" Health Concerns"}/>
           <div className="carousel-btn slider">
             <NextButton
               component={setMarginHealth}
