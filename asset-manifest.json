@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/h100daysofcode/Tic%20Toe/tic-toe/static/css/main.aab06837.css",
+    "main.js": "/h100daysofcode/Tic%20Toe/tic-toe/static/js/main.011724cf.js",
+    "static/media/positive_score.wav": "/h100daysofcode/Tic%20Toe/tic-toe/static/media/positive_score.cba6b6d5d53d89fa3c3f.wav",
+    "static/media/click.wav": "/h100daysofcode/Tic%20Toe/tic-toe/static/media/click.ae2de8e7e136703f3626.wav",
+    "index.html": "/h100daysofcode/Tic%20Toe/tic-toe/index.html",
+    "main.aab06837.css.map": "/h100daysofcode/Tic%20Toe/tic-toe/static/css/main.aab06837.css.map",
+    "main.011724cf.js.map": "/h100daysofcode/Tic%20Toe/tic-toe/static/js/main.011724cf.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aab06837.css",
+    "static/js/main.011724cf.js"
+  ]
+}
