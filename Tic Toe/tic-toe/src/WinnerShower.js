@@ -19,7 +19,7 @@ export const WinnerShower = ({
   } = useProvider();
   const [show, setShow] = useState(false);
   const [desc, setDesc] = useState("");
-  let navigate = useNavigate()
+  let navigate = useNavigate();
   function setText() {
     if (lsComputer === "true") {
       if (gameOver === lsplayer) {
@@ -45,14 +45,14 @@ export const WinnerShower = ({
         setShow(true);
       }, 300);
     }
-    if(restart){
-      setShow(true)
+    if (restart) {
+      setShow(true);
     }
-  }, [restart,show]);
+  }, [restart, show]);
 
   return (
     <>
-      {(show && !restart )&& (
+      {show && !restart && (
         <div className={`winner-shower-wrapper`}>
           <div className="winner-shower">
             <p
@@ -84,9 +84,9 @@ export const WinnerShower = ({
               <button
                 className="next-round"
                 onClick={() => {
+                  setGameOver(false);
                   setWinnerArray([]);
                   setBoard(Array(9).fill(""));
-                  setGameOver(false);
                   setShow(false);
                   // setWhoIsWinner(false);
                 }}
@@ -97,7 +97,7 @@ export const WinnerShower = ({
           </div>
         </div>
       )}
-       {restart && (
+      {restart && (
         <div className={`winner-shower-wrapper`}>
           <div className="winner-shower">
             <p
@@ -108,14 +108,21 @@ export const WinnerShower = ({
             >
               Restart Game?
             </p>
-           
 
             <div className="winner-button-container">
-              <button className="cancel-btn" onClick={() => setRestart(false)}>NO, cancel</button>
+              <button
+                className="cancel-btn"
+                onClick={() => {
+                  setGameOver(false);
+                  setRestart(false);
+                }}
+              >
+                NO, cancel
+              </button>
               <button
                 className="next-round"
                 onClick={() => {
-                navigate("/")
+                  navigate("/");
                   // setWhoIsWinner(false);
                 }}
               >

@@ -12,15 +12,20 @@ export const Square = ({
   value,
   text,
   index,
+  start,
   convertToSVG,
   winnerArray,
 }) => {
-  const [click, setClick] = useState(false);
+  // const [click, setClick] = useState(false);
   const { gameOver, whoIsWinner } = useProvider();
 
   useEffect(() => {
+    console.log("rendred");
+  });
+  useEffect(() => {
     if (gameOver) {
-      setClick(false);
+      
+      // setClick(false);
     }
   }, [gameOver]);
   function winner() {
@@ -43,7 +48,7 @@ export const Square = ({
       onClick={() => {
         wonSound.play()
         handleClick(index);
-        setClick(true);
+        // setClick(true);
       }}
     >
       {!value && !gameOver && (
@@ -56,7 +61,7 @@ export const Square = ({
         </span>
       )}
 
-      <p className={`move ${click && "move-active"}`}>
+      <p className={`move ${start[index] === true && "move-active"}`}>
         {winner()
           ? convertToSVG(value, 60, value === "X" ? color[3] : color[3])
           : convertToSVG(value, 60, value === "X" ? color[0] : color[1])}

@@ -1,0 +1,96 @@
+import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { Nav } from "./Nav";
+import { data } from "../data";
+import { Link } from "react-router-dom";
+export const CountryPage = ({ countries }) => {
+  const [info, setInfo] = useState("");
+  const { country } = useParams();
+  const fetchCountryData = async () => {
+    const response = await fetch(
+      `https://restcountries.com/v3.1/name/${country}?fullText=true`
+    );
+    const data = await response.json();
+    setInfo(data[0]);
+    console.log(data)
+  };
+//   make a function to check if property exists
+  
+  useEffect(() => {
+    if (countries.length < 0) {
+      const countryData = countries.find((c) => c.name.common === country);
+      setInfo(countryData);
+    } else {
+      fetchCountryData();
+    }
+  }, [countries]);
+  //   let nativeName = info.name.nativeName;
+  return (
+    <>
+    <Nav></Nav>
+    <div className="back-btn">
+        <Link to="/">
+            <button>Back</button>
+        </Link>
+    </div>
+      {info && (
+        <>
+          <div className="country">
+            <div className="flag">
+              <img src={info.flags.png} alt={`${info.name.common} flag`} />
+            </div>
+            <div className="info">
+              <h3>{info.name.common}</h3>
+              <p>
+                <strong>NativeName:</strong>
+                {
+                  info.name.nativeName[Object.keys(info.name.nativeName)[0]]
+                    .common
+                }
+              </p>
+              <p>
+                <strong>Population:</strong> {info.population}
+              </p>
+              <p>
+                <strong>Region:</strong> {info.region}
+              </p>
+              <p>
+                <strong>SubRegion:</strong> {info.subregion}
+              </p>
+              <p>
+                <strong>Capital:</strong> {info.capital}
+              </p>
+              <p>
+                <strong>Top Level Domain:</strong> {info.tld[0]}
+              </p>
+              {/* area */}
+              <p>
+                <strong>Area:</strong> {`${info.area} sq.`}
+              </p>
+              <p>
+                <strong>Currencies:</strong>{" "}
+                {info.currencies[Object.keys(info.currencies)].name +
+                  " " +
+                  info.currencies[Object.keys(info.currencies)].symbol}
+              </p>
+              <p>
+                <strong>Languages:</strong>{" "}
+                {Object.keys(info.languages)
+                  .map((l) => info.languages[l])
+                  .toString()}
+              </p>
+            </div>
+            {/* <div className="sub-info">
+              <h3>Border Countries</h3>
+              {info.borders.map((border) => (
+                <p>{border}</p>
+              ))}
+            </div> */}
+          </div>
+        </>
+      )}
+    </>
+  );
+};
