@@ -46,14 +46,11 @@ const BuyPage = (props) => {
   return (
     <>
       <Nav></Nav>
-
-      {/* {productList.length > 0 &&
-setList(productList.filter((item) => item.id === id))} */}
       <p>{dataLoading}</p>
       <div className="main-buy-product-info-container">
         <div className="buy-img-container">
           <div className="buy-img-section">
-            {!dataLoading &&
+            {list.length > 0 &&
               list[0].images.sort().map((item, index) => {
                 let position = "buy-nextSlide";
                 if (value === index) {
@@ -74,7 +71,7 @@ setList(productList.filter((item) => item.id === id))} */}
               })}
           </div>
           <div className="buy-img-option">
-            {!dataLoading &&
+            {list.length > 0 &&
               list[0].images.map((item, index) => {
                 return (
                   <Imgoption

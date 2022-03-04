@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route element={<PrivateRoute />}>
             <Route exact path="/" element={<Home />} />
-
+            <Route exact path="/:id" element={<BuyPage />} />
             <Route path="/cart" element={<CartPage />} />
           </Route>
           <Route path="shop" element={<MainShop />}>
