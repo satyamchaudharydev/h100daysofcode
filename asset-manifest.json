@@ -1,15 +1,26 @@
 {
   "files": {
-    "main.css": "/h100daysofcode/Tic%20Toe/tic-toe/static/css/main.aab06837.css",
-    "main.js": "/h100daysofcode/Tic%20Toe/tic-toe/static/js/main.011724cf.js",
-    "static/media/positive_score.wav": "/h100daysofcode/Tic%20Toe/tic-toe/static/media/positive_score.cba6b6d5d53d89fa3c3f.wav",
-    "static/media/click.wav": "/h100daysofcode/Tic%20Toe/tic-toe/static/media/click.ae2de8e7e136703f3626.wav",
-    "index.html": "/h100daysofcode/Tic%20Toe/tic-toe/index.html",
-    "main.aab06837.css.map": "/h100daysofcode/Tic%20Toe/tic-toe/static/css/main.aab06837.css.map",
-    "main.011724cf.js.map": "/h100daysofcode/Tic%20Toe/tic-toe/static/js/main.011724cf.js.map"
+    "main.css": "/h100daysofcode/Day23/color/static/css/main.aa0b3fdf.chunk.css",
+    "main.js": "/h100daysofcode/Day23/color/static/js/main.b2390a3e.chunk.js",
+    "main.js.map": "/h100daysofcode/Day23/color/static/js/main.b2390a3e.chunk.js.map",
+    "runtime-main.js": "/h100daysofcode/Day23/color/static/js/runtime-main.ca3c1df5.js",
+    "runtime-main.js.map": "/h100daysofcode/Day23/color/static/js/runtime-main.ca3c1df5.js.map",
+    "static/js/2.8ea336aa.chunk.js": "/h100daysofcode/Day23/color/static/js/2.8ea336aa.chunk.js",
+    "static/js/2.8ea336aa.chunk.js.map": "/h100daysofcode/Day23/color/static/js/2.8ea336aa.chunk.js.map",
+    "index.html": "/h100daysofcode/Day23/color/index.html",
+    "static/css/main.aa0b3fdf.chunk.css.map": "/h100daysofcode/Day23/color/static/css/main.aa0b3fdf.chunk.css.map",
+    "static/js/2.8ea336aa.chunk.js.LICENSE.txt": "/h100daysofcode/Day23/color/static/js/2.8ea336aa.chunk.js.LICENSE.txt",
+    "static/media/icon-company.6f78ffb3.svg": "/h100daysofcode/Day23/color/static/media/icon-company.6f78ffb3.svg",
+    "static/media/icon-location.f11c5487.svg": "/h100daysofcode/Day23/color/static/media/icon-location.f11c5487.svg",
+    "static/media/icon-moon.cce754ce.svg": "/h100daysofcode/Day23/color/static/media/icon-moon.cce754ce.svg",
+    "static/media/icon-sun.f28a8996.svg": "/h100daysofcode/Day23/color/static/media/icon-sun.f28a8996.svg",
+    "static/media/icon-twitter.f6a2a695.svg": "/h100daysofcode/Day23/color/static/media/icon-twitter.f6a2a695.svg",
+    "static/media/icon-website.b7923f6c.svg": "/h100daysofcode/Day23/color/static/media/icon-website.b7923f6c.svg"
   },
   "entrypoints": [
-    "static/css/main.aab06837.css",
-    "static/js/main.011724cf.js"
+    "static/js/runtime-main.ca3c1df5.js",
+    "static/js/2.8ea336aa.chunk.js",
+    "static/css/main.aa0b3fdf.chunk.css",
+    "static/js/main.b2390a3e.chunk.js"
   ]
 }
