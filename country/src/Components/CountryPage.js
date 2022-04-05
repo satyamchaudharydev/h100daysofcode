@@ -7,7 +7,7 @@ import { data } from "../data";
 import { Link } from "react-router-dom";
 import { code } from "./CountryCode";
 import { motion } from "framer-motion";
-export const CountryPage = ({ countries }) => {
+export const CountryPage = ({ countries, darkMode, setDarkMode }) => {
   const [info, setInfo] = useState("");
   const { country } = useParams();
   const fetchCountryData = async () => {
@@ -46,10 +46,21 @@ export const CountryPage = ({ countries }) => {
     <>
       {info && (
         <>
-          <Nav></Nav>
-          <motion.div animate={{opacity:1}} initial={{opacity:0}} className="country-page">
+          <Nav darkMode={darkMode} setDarkMode={setDarkMode}></Nav>
+          <motion.div
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            className="country-page"
+            style={{ color: darkMode ? "#fafafa" : "#202C36" }}
+          >
             <Link to="/">
-              <button className="back-btn">
+              <button
+                className="back-btn"
+                style={{
+                  color: darkMode && "#fff",
+                  background: darkMode && "#2B3844",
+                }}
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-6 w-6"
@@ -133,7 +144,13 @@ export const CountryPage = ({ countries }) => {
                     {checkProperty(info.borders)
                       ? info.borders.map((border) => (
                           <Link to={`/${countryCode(border).name}`}>
-                            <div className="border-item">
+                            <div
+                              className="border-item"
+                              style={{
+                                color: darkMode && "#fff",
+                                background: darkMode && "#2B3844",
+                              }}
+                            >
                               {countryCode(border) && (
                                 <p>{countryCode(border).name}</p>
                               )}

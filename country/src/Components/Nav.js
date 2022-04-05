@@ -1,12 +1,17 @@
 import React from "react";
 
-export const Nav = () => {
+export const Nav = ({darkMode,setDarkMode}) => {
   return (
-    <nav>
+    <nav
+      style={{
+        background: darkMode && "#2B3844",
+        color: darkMode && "#fff",
+      }}
+    >
       <div className="logo">
         <p> Where in this World?</p>
       </div>
-      <div className="mode-toggle">
+      <div className="mode-toggle" onClick={() => setDarkMode(!darkMode)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"

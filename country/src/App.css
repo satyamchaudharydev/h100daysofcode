@@ -1,11 +1,12 @@
 :root {
-  --primaty-color: #fafafa;
+  --primary-color: #fafafa;
   --padding-dropdown: 1.6rem;
 }
 *,
 *:before,
 *:after,
 input::placeholder {
+  color: currentColor;
   margin: 0;
   font-family: "Nunito Sans", sans-serif;
   box-sizing: border-box;
@@ -13,6 +14,9 @@ input::placeholder {
 a {
   text-decoration: none;
   color: #000;
+}
+input {
+  background: none;
 }
 button {
   background: none;
@@ -25,6 +29,9 @@ body {
   background: #fff;
 }
 .App {
+  min-height: 100vh;
+}
+.app-wrapper {
   display: grid;
   gap: 50px;
 }
@@ -112,7 +119,6 @@ nav {
   gap: 20px;
   padding-inline: 3em;
   padding-block: 1.5em;
-  background-color: #fafafa;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -217,7 +223,7 @@ a {
   border-radius: 2px;
   font-size: 14px;
 }
-strong{
-  color: #111517;
+strong {
+  /* color: #111517; */
   font-weight: 600;
 }

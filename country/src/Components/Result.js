@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
-export const Result = ({ countries, setCountries }) => {
+export const Result = ({ countries, setCountries,darkMode }) => {
   const [filterData, setFilterData] = useState([]);
   async function fetchData() {
     const response = await fetch("https://restcountries.com/v3.1/all");
@@ -25,15 +25,23 @@ export const Result = ({ countries, setCountries }) => {
   return (
     <>
       <div className="result">
-        <Search FilterCountry={FilterCountry} setFilterData={setFilterData} countries={countries}></Search>
+        <Search
+          FilterCountry={FilterCountry}
+          darkMode={darkMode}
+          setFilterData={setFilterData}
+          countries={countries}
+        ></Search>
         <div className="cards">
           {filterData.map((country) => (
-            //   const {flag, population, region, capital, currencies } = country;
             <Link to={`/${country.name.common}`}>
               <motion.div
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
                 className="card"
+                style={{
+                  background: darkMode ? "#2B3844" : "#fafafa",
+                  color: darkMode ? "#fafafa" : "#202C36",
+                }}
                 key={country.name.common}
               >
                 <div className="flag">

@@ -2,12 +2,20 @@ import React from "react";
 import { Nav } from "./Nav";
 import { Result } from "./Result";
 
-export const HomePage = ({ countries, setCountries }) => {
-    
+export const HomePage = ({
+  countries,
+  setCountries,
+  darkMode,
+  setDarkMode,
+}) => {
   return (
     <>
-      <Nav></Nav>
-      <Result countries={countries} setCountries={setCountries}></Result>
+      <Nav darkMode={darkMode} setDarkMode={setDarkMode}></Nav>
+      <Result
+        countries={countries}
+        darkMode={darkMode}
+        setCountries={setCountries}
+      ></Result>
     </>
   );
 };
