@@ -1,0 +1,158 @@
+[class^="f-"] {
+  display: flex;
+}
+[class^="g-"] {
+  display: grid;
+}
+.App {
+  position: relative;
+  padding-top: 6rem;
+  /* min-height: 100vh; */
+}
+.container {
+  --container-width: 600px;
+  padding-inline: 1em;
+  width: min(80%, var(--container-width));
+  text-align: center;
+  place-items: center;
+}
+/* absolute bg-image of app */
+.bg {
+  position: absolute;
+  background: #000;
+  inset: 0;
+  z-index: -1;
+}
+/* Header */
+header {
+  color: #fff;
+  margin-bottom: 1em;
+}
+/* app-tile */
+.title {
+  font-size: var(--fs-1000);
+}
+/* theme-switch */
+.theme-switch {
+}
+/* a common item b/w input and task */
+.common-item {
+  display: grid;
+  align-items: center;
+  background: var(--foreground);
+  padding: 1.3em 1.3em;
+  gap: var(--gap, 1rem);
+}
+
+/* add-task-input */
+.add-task__form {
+  box-shadow: var(--box-shadow);
+  border-radius: var(--br);
+  grid-template-columns: auto 1fr;
+  margin-top: 2em;
+}
+.add-task__form--input {
+  height: 100%;
+  border-radius: 5px;
+  font-size: var(--fs-600);
+  color: #000;
+}
+.add-task__form--input::placeholder {
+  color: var(--placeholder-clr);
+}
+
+/* button submit */
+.submit-btn {
+  width: var(--check-size);
+  height: var(--check-size);
+  border: 1px solid var(--light-clr);
+  border-radius: 50%;
+}
+
+/* tasks */
+.tasks {
+  padding: 0;
+  border-radius: var(--br);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+.task {
+  --border: 2px solid var(--light-clr);
+  /* border-top: var(--border); */
+  border-bottom: var(--border);
+  grid-template-columns: auto 1fr auto;
+}
+.task:last-child {
+  border-bottom: 0;
+}
+.task-content {
+  font-size: var(--fs-600);
+  color: var(--text-content);
+  justify-self: left;
+  
+}
+label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* input */
+.check-icon {
+  -webkit-appearance: none;
+  appearance: none;
+  color: var(--light-clr);
+  width: var(--check-size);
+  overflow: hidden;
+  height: var(--check-size);
+  border: 0.15em solid currentColor;
+  background-color: transparent;
+  border-radius: 50%;
+  position: relative;
+}
+.check-icon::before,
+.check-icon::after {
+  content: "";
+  position: absolute;
+}
+.check-icon::after {
+  width: 30px;
+  height: 30px;
+  transform: translate(-20%, -20%) scale(0);
+  color: #fff;
+  background-image: url("./../../public/images/icon-check.svg");
+  background-repeat: no-repeat;
+  top: 50%;
+  left: 50%;
+  /*   box-shadow: inset 1em 1em var(--form-control-color); */
+}
+.check-icon:before {
+  opacity: 0;
+  inset: 0;
+  background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%);
+}
+.check-icon:hover:not(:checked) {
+  background: linear-gradient(135deg, #55ddff 0%, #c058f3 100%) border-box;
+  mask: linear-gradient(white, white) padding-box, linear-gradient(white, white);
+  mask-composite: exclude;
+  border-radius: 50%;
+  border-color: transparent;
+  border-width: 2px;
+  border-style: solid;
+}
+.check-icon:checked {
+  border: none;
+
+  color: #fff;
+  opacity: 1;
+}
+.check-icon:checked::after {
+  transition: 120ms transform ease;
+
+  transform: translate(-20%, -17%) scale(1);
+}
+.check-icon:checked::before {
+  transition: 120ms opacity ease;
+
+  opacity: 1;
+}
+/*  */

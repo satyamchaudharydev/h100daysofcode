@@ -6,9 +6,13 @@ import { useState } from "react";
 const { crew } = data;
 function Crew({ setPage }) {
   const [value, setValue] = useState(0);
+  const [clicked, setClicked] = useState(false);
   useEffect(() => {
     setPage("crew");
   }, []);
+  useEffect(() => {
+    setPage("crew");
+  }, [clicked]);
   return (
     <>
       <motion.main
@@ -24,7 +28,10 @@ function Crew({ setPage }) {
           {crew.map((item, index) => (
             <button
               className={value === index && "dot-active"}
-              onClick={() => setValue(index)}
+              onClick={() => {
+                setClicked(true);
+                setValue(index);
+              }}
             >
               <span className="sr-only">{item.role}</span>
             </button>

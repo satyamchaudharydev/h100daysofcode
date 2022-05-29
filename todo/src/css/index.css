@@ -1,0 +1,221 @@
+body {
+  /* color */
+  --clr-bg: #fafafa; /* body bg */
+  --dark-clr-bg: #171823;
+  --body-bg: var(--clr-bg);
+  --primary: #fff; /* primary bg */
+  --dark-primary: #25273d;
+  --body-bg: var(--clr-bg);
+  --foreground: var(--primary);
+  --background: var(--dark-primary);
+  --light-clr: #e3e4f1; /* border */
+  --box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  --placeholder-clr: #9495a5;
+  --task-content: #494c6b;
+  /* font-size */
+  /* 40px */
+  --fs-1000: 2.5rem;
+  --fs-600: 1.125rem;
+  --fs-500: 1rem;
+  --fs-100: 0.875rem;
+  /* border-radius */
+  --br: 5px;
+  /* size */
+  --check-size: 1.5rem;
+  font-family: "Josefin Sans", sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--body-bg);
+}
+body.dark-theme {
+  --foreground: var(--dark-primary);
+  --background: var(--primary);
+  --body-bg: var(--dark-clr-bg);
+  --box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+  --light-clr: #393a4b;
+  --placeholder-clr: #767992;
+  --text-content: #c8cbe7;
+}
+@media (prefers-color-scheme: dark) {
+  /* defaults to dark theme */
+  body {
+    --foreground: var(--dark-primary);
+    --background: var(--primary);
+    --body-bg: var(--dark-clr-bg);
+    --box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+    --light-clr: #393a4b;
+    --text-content: #c8cbe7;
+    --placeholder-clr: #767992;
+  }
+  body.light-theme {
+    --foreground: var(--primary);
+    --background: var(--dark-primary);
+    --body-bg: var(--clr-bg);
+    --light-clr: #e3e4f1;
+    --placeholder-clr: #9495a5;
+    --task-content: #494c6b;
+    --box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  }
+}
+/* .dark-theme .App {
+  --bg: var(--dark-clr-bg);
+} */
+/* #root {
+  min-height: 100vh;
+  display: grid;
+}
+.App {
+  display: grid;
+
+  grid-template-rows: auto 1fr;
+} */
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+/* button */
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+/* Box sizing */
+*,
+*::before,
+*::after {
+  /* font-family: "Ro"; */
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+/* 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+} */
+a {
+  color: none;
+  text-decoration: none;
+}
+
+/* make images easier to work with */
+img,
+picutre {
+  max-width: 100%;
+  /* display: block; */
+}
+
+/* make form elements easier to work with */
+input,
+button,
+dialog,
+textarea,
+select {
+  font: inherit;
+  border: none;
+  outline: none;
+  background: none;
+}
+/* removing li default style */
+ul {
+  list-style: none;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+.uppercase {
+  text-transform: uppercase;
+}
+.none {
+  display: none;
+}
+.align {
+  align-items: center;
+}
+.justify {
+  justify-content: center;
+}
+.flow > * + * {
+  margin-block-start: var(--space, 1em);
+}
+
+.lt-spacing-2 {
+  letter-spacing: 2.57px;
+}
+.lt-spacing-1 {
+  letter-spacing: 1.93px;
+}
+/* general */
+a {
+  color: #111;
+  text-decoration: underline;
+}
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+.f-center {
+  justify-content: center;
+  align-items: center;
+}
+.f-row {
+  flex-direction: row;
+}
+.f-space-bw {
+  justify-content: space-between;
+}
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+.g-center {
+  place-items: center;
+}
+.a-center {
+  align-items: center;
+}
+.d-block {
+  display: block;
+}
+
+.grid-container {
+  padding-inline: 1em;
+  display: grid;
+  text-align: center;
+  place-items: center;
+}
+
+/* .paragraph {
+  max-width: 55ch;
+  line-height: 24px;
+  color: hsl(var(--clr-light));
+} */
