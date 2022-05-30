@@ -23,7 +23,8 @@ body {
   /* size */
   --check-size: 1.5rem;
   font-family: "Josefin Sans", sans-serif;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   margin: 0;
   background: var(--body-bg);
 }
@@ -133,7 +134,7 @@ select {
   background: none;
 }
 /* removing li default style */
-ul {
+ol,ul {
   list-style: none;
 }
 

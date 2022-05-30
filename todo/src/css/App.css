@@ -4,10 +4,13 @@
 [class^="g-"] {
   display: grid;
 }
+#root {
+  height: 100%;
+}
 .App {
   position: relative;
   padding-top: 6rem;
-  /* min-height: 100vh; */
+  height: 100%;
 }
 .container {
   --container-width: 600px;
@@ -16,12 +19,18 @@
   text-align: center;
   place-items: center;
 }
-/* absolute bg-image of app */
-.bg {
+.bg-container {
   position: absolute;
-  background: #000;
   inset: 0;
   z-index: -1;
+}
+/* absolute bg-image of app */
+.bg {
+  width: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  object-fit: cover;
 }
 /* Header */
 header {
@@ -73,7 +82,7 @@ header {
 .tasks {
   padding: 0;
   border-radius: var(--br);
-  overflow: hidden;
+  overflow: scroll;
   box-shadow: var(--box-shadow);
 }
 .task {
@@ -89,7 +98,6 @@ header {
   font-size: var(--fs-600);
   color: var(--text-content);
   justify-self: left;
-  
 }
 label {
   display: flex;

@@ -8,7 +8,11 @@ function App() {
   return (
     <TaskProvider>
       <div className="f-center App">
-        <img className="bg" src="/images/bg-desktop-dark.jpg" alt="mountain" />
+          <img
+            className="bg"
+            src="/images/bg-desktop-dark.jpg"
+            alt="mountain"
+          />
         <div className="container flow">
           <Header></Header>
           <AddTask />

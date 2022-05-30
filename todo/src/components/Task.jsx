@@ -2,7 +2,7 @@ import React from "react";
 import { useTask } from "../context/Task";
 import { Reorder } from "framer-motion";
 
-function Task({task}) {
+function Task({ task }) {
   const { removeTask, toggleTask } = useTask();
   const { id, content, done, editing } = task;
   const toggling = (e) => {
@@ -12,14 +12,20 @@ function Task({task}) {
   return (
     <Reorder.Item
       className="task common-item a-center"
-      key={id}
       value={task}
-      onClick={() => toggling()}
+      whileDrag={{
+        scale: 1.1,
+        boxShadow:
+          "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
+      }}
+      onDoubleClick={() => toggling(id)}
     >
       <input
         // defaultChecked={done}
         checked={done}
-        onChange={(e) => {}}
+        onChange={(e) => {
+          toggling(e);
+        }}
         // checked={done === true ? true : false}
         className="check-icon"
         type="checkbox"

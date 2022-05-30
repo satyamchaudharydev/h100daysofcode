@@ -9,8 +9,8 @@ export function useTask() {
 }
 export function TaskProvider({ children }) {
   const [tasks, setTasks] = useState([
-    { id: 1, content: "task 1", done: false, editing: false },
-    { id: 2, content: "task 1", done: false, editing: false },
+    { id: 1, content: "Atomic habbit", done: true, editing: false },
+    { id: 2, content: "Atomic habbit", done: true, editing: false },
   ]);
 
   const addTask = (content) => {
@@ -19,6 +19,9 @@ export function TaskProvider({ children }) {
   };
 
   const removeTask = (id) => {
+    // tasks.sort((a, b) => {
+    //   return a.done - b.done;
+    // });
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
