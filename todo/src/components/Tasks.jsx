@@ -4,17 +4,17 @@ import { useTask } from "../context/Task";
 import { Reorder } from "framer-motion";
 
 function Tasks() {
-  const { tasks, setTasks } = useTask();
+  const { todos, setTasks } = useTask();
   return (
     <Reorder.Group
       axis="y"
       as="ol"
       layoutScroll
       className="tasks"
-      values={tasks}
+      values={todos}
       onReorder={setTasks}
     >
-      {tasks.map((task) => {
+      {todos.map((task) => {
         console.log(task.id);
         return <Task key={task.id} task={task}></Task>;
       })}
