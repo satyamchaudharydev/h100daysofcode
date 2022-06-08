@@ -5,17 +5,7 @@ const tabs = ["all", "active", "completed"];
 
 function Footer() {
   const [value, setValue] = useState(0);
-  const { dispatch, ACTIONS,todos } = useTask();
-  const taskBy = (item) => {
-    if (item === "active") {
-      dispatch({ type: ACTIONS.TASK_BY_COMPLETED, payload: { taskby: item } });
-    } else if(item === "completed") {
-      dispatch({ type: ACTIONS.TASK_BY_COMPLETED, payload: { taskby: item } });
-    }
-    else{
-      
-    }
-  };
+  const { taskBy } = useTask();
   return (
     <>
       <footer className="space-bw a-center items-left">
@@ -26,6 +16,7 @@ function Footer() {
               key={index}
               className={`tab ${value === index && "active"}`}
               onClick={() => {
+                setValue(index);
                 taskBy(item);
               }}
             >

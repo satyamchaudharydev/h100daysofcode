@@ -3,10 +3,11 @@ import { useTask } from "../context/Task";
 import { Reorder } from "framer-motion";
 
 function Task({ task }) {
-  const { ACTIONS, dispatch } = useTask();
+  const { removeTask, toggleTask } = useTask();
   const { id, content, done, editing } = task;
   const toggling = (e) => {
-    dispatch({ type: ACTIONS.TOGGLE_TASK, payload: { id } });
+    console.log("clicking");
+    toggleTask(id);
   };
   return (
     <Reorder.Item
@@ -36,9 +37,7 @@ function Task({ task }) {
         <button
           onClick={(event) => {
             event.stopPropagation();
-            dispatch({ type: ACTIONS.REMOVE_TASK, payload: { id } });
-
-            // removeTask(id);
+            removeTask(id);
           }}
           type="button"
           role="remove-task"
