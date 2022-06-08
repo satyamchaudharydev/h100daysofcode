@@ -9,7 +9,7 @@ function Tasks() {
     <Reorder.Group
       axis="y"
       as="ol"
-      // layoutScroll
+      layoutScroll
       className="tasks"
       values={tasks}
       onReorder={setTasks}
