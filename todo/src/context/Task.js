@@ -1,6 +1,7 @@
 import { useContext, createContext } from "react";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
+import useLocalStorage from "../hooks/useLocalStorage";
 let initialTasks = [
   { id: 1, content: "Atomic habbit", done: true, editing: false },
   { id: 2, content: "Atomic habbit", done: true, editing: false },
@@ -11,17 +12,18 @@ export function useTask() {
   return useContext(TaskContext);
 }
 export function TaskProvider({ children }) {
-  const [tasks, setTasks] = useState(initialTasks);
-
+  const [tasks, setTasks] = useLocalStorage("tasks", initialTasks);
+  const [filteredTasks, setFilteredTasks] = useState(initialTasks);
+  const [status, setStatus] = useState("all");
+  useEffect(() => {
+    taskBy();
+  }, [tasks, status]);
   const addTask = (content) => {
     const newTask = { id: uuidv4(), content, done: false, editing: false };
     setTasks([newTask, ...tasks]);
   };
 
   const removeTask = (id) => {
-    // tasks.sort((a, b) => {
-    //   return a.done - b.done;
-    // });
     let newTasks = tasks.filter((task) => task.id !== id);
     setTasks(newTasks);
     initialTasks = newTasks;
@@ -33,35 +35,28 @@ export function TaskProvider({ children }) {
     );
     setTasks(updateTask);
   };
-
-  const taskByComplete = () => {
-    let taskComplete = tasks.filter((task) => task.done);
-    return taskComplete;
+  const filterCompleteTask = () => {
+    setTasks(tasks.filter((task) => !task.done));
   };
-
-  const taskByIncomplete = () => {
-    let taskComplete = tasks.filter((task) => !task.done);
-    return taskComplete;
-  };
-
-  const taskBy = (filter) => {
-    console.log(filter);
-    if (filter === "all") {
-      setTasks(tasks);
-    } else if (filter === "completed") {
-      setTasks(taskByComplete());
-    } else if (filter === "active") {
-      setTasks(taskByIncomplete());
+  const taskBy = () => {
+    if (status === "all") {
+      setFilteredTasks(tasks);
+    } else if (status === "completed") {
+      setFilteredTasks(tasks.filter((task) => task.done));
+    } else if (status === "active") {
+      setFilteredTasks(tasks.filter((task) => !task.done));
     }
   };
 
   const value = {
-    tasks,
+    tasks: filteredTasks,
     setTasks,
     addTask,
+    filterCompleteTask,
     removeTask,
     toggleTask,
     taskBy,
+    setStatus,
   };
   return <TaskContext.Provider value={value}>{children}</TaskContext.Provider>;
 }
