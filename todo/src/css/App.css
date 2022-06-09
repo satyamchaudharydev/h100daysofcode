@@ -84,6 +84,7 @@ footer,
   padding: 1.3em 1.3em;
 }
 .task-container {
+  background-color: #fff;
   box-shadow: var(--box-shadow);
   overflow-x: hidden;
   overflow-y: auto;

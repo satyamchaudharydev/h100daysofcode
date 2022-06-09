@@ -2,10 +2,8 @@ import { useContext, createContext } from "react";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import useLocalStorage from "../hooks/useLocalStorage";
-let initialTasks = [
-  { id: 1, content: "Atomic habbit", done: true, editing: false },
-  { id: 2, content: "Atomic habbit", done: true, editing: false },
-];
+let initialTasks = [];
+
 const TaskContext = createContext();
 
 export function useTask() {

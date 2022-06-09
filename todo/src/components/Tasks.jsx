@@ -1,7 +1,7 @@
 import React from "react";
 import Task from "./Task";
 import { useTask } from "../context/Task";
-import { Reorder } from "framer-motion";
+import { Reorder, AnimatePresence } from "framer-motion";
 
 function Tasks() {
   const { tasks, setTasks } = useTask();
@@ -14,10 +14,12 @@ function Tasks() {
       values={tasks}
       onReorder={setTasks}
     >
-      {tasks.map((task) => {
-        console.log(task.id);
-        return <Task key={task.id} task={task}></Task>;
-      })}
+      <AnimatePresence initial="false">
+        {tasks.map((task) => {
+          console.log(task.id);
+          return <Task key={task.id} task={task}></Task>;
+        })}
+      </AnimatePresence>
     </Reorder.Group>
   );
 }

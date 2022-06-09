@@ -14,7 +14,7 @@ function App() {
         <div className="container flow">
           <Header></Header>
           <AddTask />
-          <motion.div className="task-container">
+          <motion.div layout className="task-container">
             <Tasks />
             <Footer></Footer>
           </motion.div>

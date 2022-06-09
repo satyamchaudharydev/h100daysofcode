@@ -18,6 +18,14 @@ function Task({ task }) {
         boxShadow:
           "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
       }}
+      // initial={{ scale: 1 }}
+      // animate={{ scale: 1, opacity: 1, x: 0 }}
+      // exit={{ scale: 0, opacity: 0, x: "10%" }}
+      // transition={{ duration: 0.3, type: "tween" }}
+      initial={{ opacity: 1, x: 0 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ x: "-100%", opacity: 0.5 }}
+      transition={{ duration: 0.2 }}
       onDoubleClick={() => toggling(id)}
     >
       <input
