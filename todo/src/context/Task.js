@@ -15,6 +15,7 @@ export function TaskProvider({ children }) {
   const [status, setStatus] = useState("all");
   useEffect(() => {
     taskBy();
+  
   }, [tasks, status]);
   const addTask = (content) => {
     const newTask = { id: uuidv4(), content, done: false, editing: false };
@@ -34,7 +35,7 @@ export function TaskProvider({ children }) {
     setTasks(updateTask);
   };
   const filterCompleteTask = () => {
-    setTasks(tasks.filter((task) => !task.done));
+    return tasks.filter((task) => !task.done);
   };
   const taskBy = () => {
     if (status === "all") {

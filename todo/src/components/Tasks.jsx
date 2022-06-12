@@ -17,7 +17,7 @@ function Tasks() {
       <AnimatePresence initial="false">
         {tasks.map((task) => {
           console.log(task.id);
-          return <Task key={task.id} task={task}></Task>;
+          return <Task key={task.id} task={task} tasks={tasks}></Task>;
         })}
       </AnimatePresence>
     </Reorder.Group>

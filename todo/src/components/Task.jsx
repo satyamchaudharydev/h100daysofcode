@@ -1,13 +1,20 @@
 import React from "react";
 import { useTask } from "../context/Task";
 import { Reorder } from "framer-motion";
+import success from "../audio/success.mp3";
 
-function Task({ task }) {
+function Task({ task, tasks }) {
   const { removeTask, toggleTask } = useTask();
+  const audio = new Audio(success);
+
   const { id, content, done, editing } = task;
   const toggling = (e) => {
-    console.log("clicking");
+    let checkOneTaskIsCompleted =
+      tasks.filter((task) => !task.done).length === 1;
     toggleTask(id);
+    if ((!task.done || e.checked) && checkOneTaskIsCompleted) {
+      audio.play();
+    }
   };
   return (
     <Reorder.Item
@@ -18,10 +25,6 @@ function Task({ task }) {
         boxShadow:
           "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
       }}
-      // initial={{ scale: 1 }}
-      // animate={{ scale: 1, opacity: 1, x: 0 }}
-      // exit={{ scale: 0, opacity: 0, x: "10%" }}
-      // transition={{ duration: 0.3, type: "tween" }}
       initial={{ opacity: 1, x: 0 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ x: "-100%", opacity: 0.5 }}
@@ -40,7 +43,7 @@ function Task({ task }) {
         name={`task${id}`}
         id={`task${id}`}
       />
-      <label htmlFor={`tas${id}`}>
+      <label htmlFor={`task${id}`}>
         <p className="task-content">{content}</p>
         <button
           onClick={(event) => {
