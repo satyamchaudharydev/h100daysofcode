@@ -13,9 +13,9 @@ export function TaskProvider({ children }) {
   const [tasks, setTasks] = useLocalStorage("tasks", initialTasks);
   const [filteredTasks, setFilteredTasks] = useState(initialTasks);
   const [status, setStatus] = useState("all");
+
   useEffect(() => {
     taskBy();
-  
   }, [tasks, status]);
   const addTask = (content) => {
     const newTask = { id: uuidv4(), content, done: false, editing: false };
@@ -56,6 +56,7 @@ export function TaskProvider({ children }) {
     toggleTask,
     taskBy,
     setStatus,
+
   };
   return <TaskContext.Provider value={value}>{children}</TaskContext.Provider>;
 }

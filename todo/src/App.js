@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 function App() {
   return (
     <TaskProvider>
+
       <div className="flex j-center App">
         <img className="bg" src="/images/bg-desktop-dark.jpg" alt="mountain" />
         <div className="container flow">
