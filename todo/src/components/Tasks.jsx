@@ -3,18 +3,14 @@ import React from "react";
 import Task from "./Task";
 import { useTask } from "../context/Task";
 import { Reorder, AnimatePresence } from "framer-motion";
-import { LayoutGroup } from "framer-motion";
 
 function Tasks() {
   const { tasks, setTasks } = useTask();
 
   return (
-    <LayoutGroup>
       <Reorder.Group
         axis="y"
         as="ul"
-        layoutScroll
-        layout
         className="tasks"
         values={tasks}
         onReorder={setTasks}
@@ -32,7 +28,6 @@ function Tasks() {
           })}
         </AnimatePresence>
       </Reorder.Group>
-    </LayoutGroup>
   );
 }
 

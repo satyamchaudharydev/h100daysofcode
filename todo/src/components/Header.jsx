@@ -1,6 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
 import useThemeDetector from "../hooks/useThemeDetector";
 export default function Header() {
   const { isDarkTheme, currentTheme } = useThemeDetector();

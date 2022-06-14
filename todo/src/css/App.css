@@ -15,9 +15,11 @@
   height: 100%;
 }
 .container {
+  --space: 1.4rem;
+  /* --flow: 1.4rem; */
   --container-width: 600px;
   padding-inline: 1em;
-  width: min(80%, var(--container-width));
+  width: min(90%, var(--container-width));
   text-align: center;
   place-items: center;
 }
@@ -29,6 +31,7 @@
 /* absolute bg-image of app */
 .bg {
   width: 100%;
+  min-height: 200px;
   position: absolute;
   inset: 0;
   z-index: -1;
@@ -48,7 +51,7 @@ header {
 }
 /* a common item b/w input and task */
 .common-item {
-  display: grid;
+  display: flex;
   align-items: center;
   background: var(--foreground);
   gap: var(--gap, 1rem);
@@ -86,8 +89,6 @@ footer,
   padding: 1.3em 1.3em;
 }
 .task-container {
-  transition: height 2s ease;
-
   background-color: #fff;
   box-shadow: var(--box-shadow);
   overflow-x: hidden;
@@ -100,25 +101,33 @@ footer,
 }
 .task {
   position: relative;
-  /* border-top: var(--border); */
+  justify-content: space-between;
   border-bottom: var(--border);
-  grid-template-columns: auto 1fr auto;
 }
+
 .task:last-child {
   border-bottom: 0;
 }
+
 .task-content {
-  font-size: var(--fs-600);
-  color: var(--text-content);
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-basis: 100%;
   justify-self: left;
+  font-size: var(--fs-600);
+  color: var(--task-content);
 }
-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.remove-task svg{
+  --size: 1.125rem; 
+  width: var(--size);
+  height: var(--size);
+
 }
 /* input */
 .check-icon {
+  flex-shrink: 0;
   -webkit-appearance: none;
   appearance: none;
   color: var(--light-clr);
@@ -136,8 +145,8 @@ label {
   position: absolute;
 }
 .check-icon::after {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   transform: translate(-20%, -20%) scale(0);
   color: #fff;
   background-image: url("./../../public/images/icon-check.svg");
@@ -176,14 +185,12 @@ label {
 
   opacity: 1;
 }
-.task-content {
-  position: relative;
-}
-.check-icon:checked ~ label .task-content {
+
+.check-icon:checked ~ .task-content {
   color: var(--todo-complete);
 }
 /* checking logic */
-.check-icon:checked ~ label .task-content::after {
+.check-icon:checked ~ .task-content::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -208,11 +215,39 @@ footer {
 /* - tabs - */
 
 .tabs {
+  text-transform: capitalize;
   font-weight: bold;
+  border-radius: var(--br);
+  color: var(--placeholder-clr);
+}
+.m-tabs {
+  display: none;
+  box-shadow: var(--box-shadow);
+  background-color: var(--foreground);
+  padding: 1.3em 1.3em;
+  border-radius: var(--br);
+}
+.tab{
+  cursor: pointer;
 }
 .tab.active {
   color: var(--tab-active-clr);
 }
 .confetti {
   z-index: 5;
+}
+@media screen and (max-width: 768px) {
+  .App{
+    padding-top: 2.5rem;
+  }
+  .container{
+    --space: 1rem;
+  }
+  .tabs {
+    display: none;
+  }
+  .m-tabs {
+    display: flex;
+  }
+
 }

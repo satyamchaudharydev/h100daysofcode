@@ -61,22 +61,15 @@ body.dark-theme {
     --box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
   }
 }
-/* .dark-theme .App {
-  --bg: var(--dark-clr-bg);
-} */
-/* #root {
-  min-height: 100vh;
-  display: grid;
+@media screen and (max-width: 768px) {
+  body {
+    /* --fs-1000: 2rem; */
+    --fs-600: 0.9rem;
+    --check-size: 1.2rem;
+    /* --fs-500: 0.875rem;
+    --fs-100: 0.75rem; */
+  }
 }
-.App {
-  display: grid;
-
-  grid-template-rows: auto 1fr;
-} */
-/* ------------------- */
-/* Reset               */
-/* ------------------- */
-/* button */
 
 button {
   border: none;
