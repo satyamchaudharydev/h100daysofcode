@@ -30,6 +30,8 @@ function Task({ task, tasks }) {
     if ((!task.done || e.checked) && checkOneTaskIsCompleted) {
       audio.play();
       setIsConfetti(true);
+    } else {
+      setIsConfetti(false);
     }
   };
   return (

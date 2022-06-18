@@ -1,13 +1,14 @@
 import React from "react";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-
+import data from "../../data";
 const planets = ["Moon", "Mars", "Europa", "Titan"];
 function Destination({ setPage }) {
   const [value, setValue] = React.useState(0);
   useEffect(() => {
     setPage("destination");
   }, []);
+  console.log();
   return (
     <>
       <motion.main
@@ -18,31 +19,48 @@ function Destination({ setPage }) {
         <p className="numbered-title">
           <span>01</span> Pick your Destination
         </p>
-        <img src="assets/destination/image-moon.png" alt="" srcset="" />
-        <div className="destination-options">
+        <img src={`${data.destinations[value].images.png}`} alt="" srcset="" />
+        <div className="destination-options flow">
           <div className="tab-list underline-indicators flex">
             {planets.map((planet, index) => {
               return (
-                <button
-                  key={index}
-                  onClick={() => setValue(index)}
-                  className={`tab-item uppercase ff-sans-cond text-accent letter-spacing-2 ${
-                    index === value && "active"
-                  }`}
+                <div
+                  className="tab-item-container"
+                  style={{ position: "relative", border: 0, cursor: "pointer" }}
                 >
-                  {planet}
-                </button>
+                  <button
+                    key={index}
+                    onFocus={() => setValue(index)}
+                    onClick={() => setValue(index)}
+                    className={`tab-item uppercase ff-sans-cond text-accent letter-spacing-2 ${
+                      index === value && "active"
+                    }`}
+                  >
+                    {planet}
+                  </button>
+                  {value == index ? (
+                    <motion.div
+                      transition={{
+                        layout: {
+                          duration: 0.2,
+                          ease: "easeOut",
+                        },
+                      }}
+                      className="underline"
+                      layoutId="underline"
+                    ></motion.div>
+                  ) : null}
+                </div>
               );
             })}
           </div>
           <article class="destination-info">
-            <h2 class="fs-800 uppercase ff-serif">Moon</h2>
+            <h2 class="fs-800 uppercase ff-serif">
+              {`${data.destinations[value].name}`}
+            </h2>
 
             <p className="text-accent fs-400 ff-sans-normal paragraph">
-              See our planet as you’ve never seen it before. A perfect relaxing
-              trip away to help regain perspective and come back refreshed.
-              While you’re there, take in some history by visiting the Luna 2
-              and Apollo 11 landing sites.
+              {`${data.destinations[value].description}`}
             </p>
 
             <div class="flex planet-stats">
@@ -50,13 +68,19 @@ function Destination({ setPage }) {
                 <h3 class="text-accent fs-200 uppercase letter-spacing-2  ff-sans-cond">
                   Avg. distance
                 </h3>
-                <p class="fs-500 ff-serif uppercase">384,400 km</p>
+                <p class="fs-500 ff-serif uppercase">
+                  {" "}
+                  {`${data.destinations[value].distance}`}
+                </p>
               </div>
               <div className="planet-stats-item">
                 <h3 class="text-accent fs-200 uppercase letter-spacing-2 ff-sans-cond">
                   Est. travel time
                 </h3>
-                <p class="fs-500 ff-serif uppercase">3 days</p>
+                <p class="fs-500 ff-serif uppercase">
+                  {" "}
+                  {`${data.destinations[value].travel}`}
+                </p>
               </div>
             </div>
           </article>

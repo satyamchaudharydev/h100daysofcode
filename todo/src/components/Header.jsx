@@ -4,7 +4,7 @@ export default function Header() {
   const { isDarkTheme, currentTheme } = useThemeDetector();
 
   return (
-    <header className="f-space-bw">
+    <header className="space-bw">
       <h1 className="title">Todo</h1>
       <button onClick={() => currentTheme()}>
         {!isDarkTheme ? (
