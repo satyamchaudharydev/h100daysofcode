@@ -1,0 +1,245 @@
+:root {
+  /* color */
+  --color-primary: #111;
+  --clr-1000: #7d7d7d;
+  --clr-500: #e5e5e5;
+  --clr-100: #f3f3f3;
+  --clr-base: #fff;
+  /* font-size */
+  /* 200px */
+  --fs-1000: 12.5rem;
+  /* 56px */
+  --fs-900: 3.5rem;
+  /* 24px */
+  --fs-800: 1.5rem;
+
+  /* 18px */
+  --fs-700: 1.125rem;
+  /*  15px */
+  --fs-600: 0.9rem;
+  /* 14px */
+  --fs-500: 0.875rem;
+  /* 13px */
+  --fs-400: 0.8125rem;
+  /* 12px */
+  --fs-300: 0.75rem;
+  /* 10px */
+  --fs-200: 0.625rem;
+  /* 9px */
+  --fs-100: 0.6rem;
+  --space-1000: 2.5em;
+  --slide-show-height: 95px;
+  --desktop-size: 56rem;
+  --tablet-size: 50rem;
+  --mobile-size: 25rem;
+  --nav-height: 100px;
+  --app-space: 2.5rem;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Libre Baskerville", serif;
+}
+@media screen and (max-width: 50rem) {
+  body {
+    --fs-1000: 12.5rem;
+    --fs-300: 0.75rem;
+    --fs-700: 1.125rem;
+    --fs-900: 3.5rem;
+    --fs-400: 0.815rem;
+    --app-space: 2em;
+    --space-1000: 2.5rem;
+  }
+}
+@media screen and (max-width: 25rem) and (max-width: 50rem) {
+  body {
+    --fs-1000: 6.25rem;
+    --fs-300: 0.6rem;
+    --fs-700: 0.875rem;
+    --fs-900: 1.5rem;
+    --fs-400: 0.625rem;
+    --app-space: 2em;
+    --space-1000: 1.5rem;
+  }
+}
+
+/* #root {
+  min-height: 100vh;
+  display: grid;
+}
+.App {
+  display: grid;
+
+  grid-template-rows: auto 1fr;
+} */
+/* ------------------- */
+/* Reset               */
+/* ------------------- */
+/* button */
+
+button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+/* Box sizing */
+*,
+*::before,
+*::after {
+  /* font-family: "Ro"; */
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+/* 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+} */
+a {
+  color: none;
+
+  text-decoration: none;
+}
+
+/* make images easier to work with */
+img,
+picutre {
+  max-width: 100%;
+  display: block;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+figure {
+  margin: 0;
+}
+figcaption {
+  margin: 0;
+}
+/* make form elements easier to work with */
+input,
+button,
+dialog,
+textarea,
+select {
+  font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------- */
+/* Utility classes     */
+/* ------------------- */
+.uppercase {
+  text-transform: uppercase;
+}
+.none {
+  display: none;
+}
+.align {
+  align-items: center;
+}
+.justify {
+  justify-content: center;
+}
+
+/* .primary-btn {
+  --fs-size: var(--fs-400);
+  --radius: 4px;
+  background: var(--orange);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--fs-size);
+  border-radius: var(--radius);
+padding: 0.5rem 1rem;
+} */
+.flow > * + * {
+  margin-block-start: var(--space, 1em);
+}
+.lt-spacing-4{
+  letter-spacing: 3px;
+}
+.lt-spacing-2 {
+  letter-spacing: 2.57px;
+}
+.lt-spacing-1 {
+  letter-spacing: 1.93px;
+}
+.lt-spacing-3 {
+  letter-spacing: 2.14px;
+}
+/* general */
+a {
+  color: #111;
+  text-decoration: underline;
+}
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+.flex.center {
+  justify-content: center;
+  align-items: center;
+}
+.flex.row {
+  flex-direction: row;
+}
+.sp-bw {
+  justify-content: space-between;
+}
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+.grid.center {
+  place-items: center;
+}
+.d-block {
+  display: block;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+.grid-container {
+  padding-inline: 1em;
+  display: grid;
+  text-align: center;
+  place-items: center;
+}
+
+/* .paragraph {
+  max-width: 55ch;
+  line-height: 24px;
+  color: hsl(var(--clr-light));
+} */
