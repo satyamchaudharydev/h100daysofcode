@@ -12,7 +12,6 @@
 .App {
   position: relative;
   padding-top: 6rem;
-  height: 100%;
 }
 .container {
   --space: 1.4rem;
@@ -65,6 +64,7 @@ header {
   margin-top: 2em;
 }
 .add-task__form--input {
+  flex-basis: 100%;
   height: 100%;
   border-radius: 5px;
   font-size: var(--fs-600);
@@ -119,11 +119,10 @@ footer,
   font-size: var(--fs-600);
   color: var(--task-content);
 }
-.remove-task svg{
-  --size: 1.125rem; 
+.remove-task svg {
+  --size: 1.125rem;
   width: var(--size);
   height: var(--size);
-
 }
 /* input */
 .check-icon {
@@ -227,7 +226,7 @@ footer {
   padding: 1.3em 1.3em;
   border-radius: var(--br);
 }
-.tab{
+.tab {
   cursor: pointer;
 }
 .tab.active {
@@ -236,11 +235,19 @@ footer {
 .confetti {
   z-index: 5;
 }
+.archive-tasks {
+  left: 1em;
+  z-index: 999;
+  bottom: 1em;
+  box-shadow: var(--box-shadow);
+  padding: 1em;
+  background: #fff;
+}
 @media screen and (max-width: 768px) {
-  .App{
+  .App {
     padding-top: 2.5rem;
   }
-  .container{
+  .container {
     --space: 1rem;
   }
   .tabs {
@@ -249,5 +256,4 @@ footer {
   .m-tabs {
     display: flex;
   }
-
 }

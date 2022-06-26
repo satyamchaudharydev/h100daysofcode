@@ -9,7 +9,7 @@
   --clr-white: 0 0% 100%;
 
   /* font-sizes */
-  --fs-900: max(5rem, 8vw + 1rem, 9.375rem);
+  --fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
 
   --fs-800: 3.5rem;
   --fs-700: 1.5rem;
@@ -185,6 +185,9 @@ select {
   .grid-container--home {
     padding-bottom: max(6rem, 20vh);
     align-items: end;
+  }
+  .home-brief {
+    max-width: 45ch;
   }
 }
 
@@ -511,6 +514,12 @@ select {
   }
 }
 @media (min-width: 45rem) {
+  .home--info {
+    --space: 1.7rem;
+  }
+  .home--info span {
+    margin-top: 20px;
+  }
   .home {
     background-image: url("/public/assets/home/background-home-desktop.jpg");
   }
@@ -723,6 +732,9 @@ select {
     justify-self: start;
 
     max-width: 90%;
+  }
+  .planet-text {
+    min-height: 150px;
   }
   .planet-stats {
     justify-content: start;

@@ -5,9 +5,9 @@ import { useTask } from "../context/Task";
 import { Reorder, AnimatePresence } from "framer-motion";
 
 function Tasks() {
-  const { tasks, setTasks } = useTask();
-
+  const { tasks, setTasks, handleArchive } = useTask();
   return (
+    <>
       <Reorder.Group
         axis="y"
         as="ul"
@@ -19,6 +19,7 @@ function Tasks() {
           {tasks.map((task, index) => {
             return (
               <Task
+                handleArchive={handleArchive}
                 key={task.id}
                 index={index}
                 task={task}
@@ -28,6 +29,7 @@ function Tasks() {
           })}
         </AnimatePresence>
       </Reorder.Group>
+    </>
   );
 }
 

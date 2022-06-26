@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 // import logo from "../../assets/shared/logo.svg";
 // import hamburger from "../../assets/shared/hamburger.svg";
 // import close from "../../assets/shared/close.svg";
@@ -51,7 +52,7 @@ function Nav({ page }) {
           />
         </button>
         <nav>
-          <ul className="primary-navigation underline-indicators flex text-white">
+          <ul className="primary-navigation underline-indicators  flex text-white">
             {navItems.map((navItem, index) => {
               let routeText = navItem;
               if (index === 0) {
@@ -60,6 +61,11 @@ function Nav({ page }) {
               return (
                 <Link
                   className={value === index && "nav-active"}
+                  style={{
+                    position: "relative",
+                    border: 0,
+                    cursor: "pointer",
+                  }}
                   onClick={() => setValue(index)}
                   key={index}
                   to={routeText.toLowerCase()}
@@ -70,6 +76,18 @@ function Nav({ page }) {
                   >
                     <span aria-hidden="true">0{index}</span>
                     {navItem}
+                    {value === index ? (
+                      <motion.div
+                        transition={{
+                          layout: {
+                            duration: 0.2,
+                            ease: "easeOut",
+                          },
+                        }}
+                        className="underline"
+                        layoutId="underlin"
+                      ></motion.div>
+                    ) : null}
                   </li>
                 </Link>
               );

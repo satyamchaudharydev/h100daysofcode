@@ -17,13 +17,14 @@ const config = {
   colors: ["rgba(85, 221, 255, 1)", "rgba(192, 88, 243, 1)", "#FFF"],
 };
 
-function Task({ task, tasks }) {
+function Task({ task, tasks, handleArchive, archive }) {
   const { removeTask, toggleTask } = useTask();
   const [isConfetti, setIsConfetti] = useState(false);
   const audio = new Audio(success);
 
   const { id, content, done, editing } = task;
   const toggling = (e) => {
+    console.log(tasks.findIndex((task) => task.id === id));
     let checkOneTaskIsCompleted =
       tasks.filter((task) => !task.done).length === 1;
     toggleTask(id);
@@ -46,6 +47,7 @@ function Task({ task, tasks }) {
           boxShadow:
             "rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px",
         }}
+      
         exit={{ opacity: 0, transition: { duration: 0.2 } }}
         onDoubleClick={() => toggling(id)}
       >
@@ -69,6 +71,7 @@ function Task({ task, tasks }) {
         <button
           onClick={(event) => {
             event.stopPropagation();
+            handleArchive(id);
             removeTask(id);
           }}
           type="button"

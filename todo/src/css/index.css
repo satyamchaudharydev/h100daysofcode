@@ -216,7 +216,9 @@ a {
   text-align: center;
   place-items: center;
 }
-
+.fixed {
+  position: fixed;
+}
 /* .paragraph {
   max-width: 55ch;
   line-height: 24px;

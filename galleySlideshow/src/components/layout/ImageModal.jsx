@@ -5,7 +5,11 @@ export const ImageModal = ({ img, setOpenModal }) => {
     setOpenModal(false);
   };
   return (
-    <div className="dialog" onClick={(e) => closeModal(e)}>
+    <div
+      className="dialog"
+    
+      onClick={(e) => closeModal(e)}
+    >
       <div className="modal ">
         <button
           className="modal__close-btn uppercase lt-spacing-4"

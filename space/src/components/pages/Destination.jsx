@@ -59,7 +59,7 @@ function Destination({ setPage }) {
               {`${data.destinations[value].name}`}
             </h2>
 
-            <p className="text-accent fs-400 ff-sans-normal paragraph">
+            <p className="planet-text text-accent fs-400 ff-sans-normal paragraph">
               {`${data.destinations[value].description}`}
             </p>
 

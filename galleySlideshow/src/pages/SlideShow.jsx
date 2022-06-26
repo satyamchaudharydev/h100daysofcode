@@ -16,9 +16,11 @@ function SlideShow() {
   };
   useEffect(() => {
     fetchData();
+    // animating navbar on scroll
     let oldValue = 0;
     let newValue = 0;
-    window.addEventListener("scroll", (e) => {
+    // function for updating checking scroll direction is negative or postive.
+    const scrollUpdate = (e) => {
       newValue = window.pageYOffset;
       if (oldValue < newValue) {
         setScrollPos(false);
@@ -26,10 +28,26 @@ function SlideShow() {
         setScrollPos(true);
       }
       oldValue = newValue;
-    });
+    };
+    // listener
+    window.addEventListener("scroll", scrollUpdate);
   }, []);
-  console.log(gallery);
 
+  // Effect for closing image-modal when Esc-key pressed.
+  useEffect(() => {
+    const getEscKey = (e) => {
+      if (e.key === "Escape") {
+        setOpenModal(false);
+      }
+    };
+    if (openModal) {
+      console.log("this");
+
+      window.addEventListener("keydown", getEscKey);
+    }
+
+    return window.addEventListener("keydown", getEscKey);
+  }, [openModal]);
   return (
     <>
       {openModal && (
